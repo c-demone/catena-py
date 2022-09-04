@@ -1,0 +1,33 @@
+{{ shebang }}
+
+{% if lang == 'Matlab' %}
+matlab -nodesktop  -nosplash < {{ script_path|safe }}
+
+{% elif lang == 'Stata' %}
+stata -b do {{ script_path | replace('.do | .ado | .doh | .ihlp | .mata | .matah | .sthlp', '') | safe}} 
+
+{% elif lang == 'binary' %}
+    {% if script_args is not none and command is not none %}
+{{ command|safe }} {{ script_path | safe }} {{ script_args | join(' ') | safe }}
+    {% elif script_args is not none %}
+{{ script_path|safe }} {{ script_args | join(' ') | safe }}
+    {% elif command is not none %}
+{{ command|safe }} {{ script_path | safe }}
+    {% else %}
+{{ script_path|safe }}
+    {% endif %}
+
+{% elif run_as_exe %}
+    {% if script_args is not none and command is not none %}
+{{ command|safe }} {{ script_path | safe }} {{ script_args | join(' ') | safe }}
+    {% elif script_args is not none %}
+{{ script_path|safe }} {{ script_args | join(' ') | safe }}
+    {% elif command is not none %}
+{{ command|safe }} {{ script_path | safe }}
+    {% else %}
+{{ script_path|safe }}
+    {% endif %}
+
+{% else %}
+{{ content|safe }}
+{% endif %}

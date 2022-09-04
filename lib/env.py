@@ -1,0 +1,2 @@
+CONTEXT_ROOT:str = None
+JOB_SCRIPT_ABSPATH:str = None
