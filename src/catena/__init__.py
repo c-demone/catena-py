@@ -3,11 +3,11 @@ from typing import Optional
 import sys
 import os
 
-from .jobs.slurm import SLURMRESTJob
+from .jobs.slurm import SlurmJob
 from .lib.yaml_loader import Loader, safe_loader
-from slurmjobs.schemas import JobManifest, SLURMSubmit, SLURMJob
-import slurmjobs.lib.env as env
-from slurmjobs.jobs import Jobs
+from .models import JobManifest, SlurmSubmit, SlurmModel
+import catena.lib.env as env
+from .jobs import Jobs, Manifest
 
 
 
@@ -71,7 +71,7 @@ def run_manifest(manifest:str, _submit:Optional[bool]=True):
     jobdefs = JobManifest(**data).expand_jobs()
     for jobdef in jobdefs:
 
-        with SLURMRESTJob(env_modules=jobdef.env_modules, 
+        with SlurmJob(env_modules=jobdef.env_modules, 
                           job_script=jobdef.job_script,
                           job_script_args=jobdef.job_script_args,
                           command=jobdef.command,

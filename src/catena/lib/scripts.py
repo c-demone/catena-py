@@ -12,8 +12,7 @@ from charset_normalizer import from_path
 import contextlib
 import os
 
-import slurmjobs.schemas as schemas
-from slurmjobs.schemas import lang_extensions
+from ..models import lang_extensions 
 from . import env
 
 
@@ -117,7 +116,7 @@ class VirtualScript(object):
    
     __metaclass__ = VirtualScriptClass
 
-    jinja_env = Environment(loader=PackageLoader('slurmjobs', 'templates'),
+    jinja_env = Environment(loader=PackageLoader('catena', 'templates'),
                             autoescape=['.j2'],
                             undefined=StrictUndefined,
                             trim_blocks=True,

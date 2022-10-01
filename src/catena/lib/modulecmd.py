@@ -17,7 +17,12 @@ def module(*args):
 		args = args[0]
 	else:
 		args = list(args)
-	(output, error) = subprocess.Popen(['/usr/bin/modulecmd', 'python'] + 
+
+	# set module command path for regular environment
+	# variables unless lmod is present and configured
+	modcmd = os.environ.get('MODULES_CMD')
+	if "LMOD_CMD" in os.environ:
+		modcmd = os.environ.get('LMOD_CMD')
+	(output, error) = subprocess.Popen([f'{modcmd}', 'python'] + 
 			args, stdout=subprocess.PIPE).communicate()
 	exec(output)
-

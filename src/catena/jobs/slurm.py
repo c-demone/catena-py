@@ -6,10 +6,11 @@ import requests
 import importlib.resources as pkg_resources
 from pathlib import Path
 
-import slurmjobs.lib as lib
-from slurmjobs.schemas import SLURMSubmit, SLURMJob
-from slurmjobs.lib import env, _read_code, ContextTree
-from slurmjobs.lib.scripts import JobScript
+import catena.lib as lib
+from catena.models.job_manifest import DependencyType
+from ..models import SlurmSubmit, SlurmCluster, SlurmModel
+from catena.lib import env, _read_code, ContextTree
+from catena.lib.scripts import JobScript
 from subprocess import Popen, PIPE
 import errno
 import time
@@ -32,7 +33,7 @@ logger.add('logs/log_{time:YYYY-MM-DD}.log',
 mod_init = pkg_resources.read_text(lib, 'modulecmd.py')
 exec(mod_init)
 
-class SLURMRESTJob:
+class SlurmJob:
     
     """
     The `SLURMRESTJob` is the most basic type of job in the `slurmjobs` library.
@@ -89,19 +90,21 @@ class SLURMRESTJob:
 
     """
 
-    job_options: SLURMSubmit = SLURMSubmit
+    job_options: SlurmSubmit = SlurmSubmit
 
     _token_info = {}
     _state = {}
 
     def __init__(self,
                  name:str, 
+                 profile: SlurmCluster,
                  user: Optional[str] = pwd.getpwuid(os.getuid()).pw_name,
                  env_modules: Optional[list] = None,
                  env_extra: Optional[Dict[str, Any]] = None,
                  job_script: Optional[Union[Callable[..., Any], str]] = None,
                  job_script_args: Optional[List[str]] = None,
-                 command: Optional[str] = None,
+                 dependencies: Optional[Dict[DependencyType, Union[str, List[str]]]] = None,
+                 command: Optional[str] = None, 
                  jwt_lifespan: Optional[int] = 7200,
                  pyflake: Optional[bool] = True,
                  **kwargs
@@ -113,7 +116,8 @@ class SLURMRESTJob:
         self.pyflake: Optional[bool] = pyflake
         self.job_script: Optional[Union[Callable[..., Any], str]] = job_script
         self.command: Optional[str]  = command
-
+        self.dependencies = dependencies 
+        
         # if context not set, set context root to callable path
         if not env.CONTEXT_ROOT:
             cpath = Path(sys.argv[0])
@@ -145,10 +149,10 @@ class SLURMRESTJob:
         
         
         # build request url
-        self.api_version = '0.0.35' 
-        self.protocol = kwargs.pop('protocol', 'http')
-        self.host = kwargs.pop('api_host', 'edith-master2')
-        self.port = kwargs.pop('api_port', '6820')
+        self.api_version = profile.api_version
+        self.protocol = profile.api_proto
+        self.host = profile.api_host
+        self.port = profile.api_port
         self.url = f"{self.protocol}://{self.host}:{self.port}/slurm/v{self.api_version}/job/submit"
         
         # unload any loaded versions of python that could conflict
@@ -164,7 +168,7 @@ class SLURMRESTJob:
 
         # build request
         self.slurm_header = self.request_header()
-        self.request = SLURMJob(job=self.job_options(environment=self.environment, name=self.name, **kwargs),
+        self.request = SlurmModel(job=self.job_options(environment=self.environment, name=self.name, **kwargs),
                                        script=self.script)
         self.jobid = None
         self.monitor_polls = 0
@@ -206,6 +210,8 @@ class SLURMRESTJob:
     {formatted_script}
         """)
 
+    def __repr__(self):
+        return f"{self.name} {self.jobid}"
 
     def context_tree(self):
         ctx_tree = ContextTree.render()

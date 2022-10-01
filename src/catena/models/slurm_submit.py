@@ -3,10 +3,10 @@ from typing import Optional, Union
 from pathlib import Path
 
 from . import ExtendedBaseModel
-import slurmjobs.lib.env as env 
+import catena.lib.env as env 
 
 
-class SLURMSubmit(ExtendedBaseModel):
+class SlurmSubmit(ExtendedBaseModel):
     """
     SLURM sbatch options: see [SLURM documentation](https://slurm.schedmd.com/sbatch.html)
     for more details. 
@@ -19,8 +19,10 @@ class SLURMSubmit(ExtendedBaseModel):
             **defaults to 0** (suggested to leave as default)
 
         dependency: defer the start of this job until the specified dependencies have been satisfied completed.
-            All dependencies must be satisfied if the ','
-            separator is used. Any dependency may be satisfied if the "?" separator is used, **defaults to None**
+            All dependencies must be satisfied if the ','separator is used. Dependencies are given in the format:
+            --dependency=<type:jobid[:jobid], type:jobid2[:jobid2].....> (list of jobids is colon-separated, 
+            indvidual dependencies are comma-separated).
+            Any dependency may be satisfied if the "?" separator is used, **defaults to None**
 
         distribution: specify alternate distribution methods for remote processes. In sbatch, this only sets 
             environment variables that will be used by subsequent srun requests, **defaults to 'arbitrary'**
@@ -219,9 +221,9 @@ class SLURMSubmit(ExtendedBaseModel):
             return None
 
 
-class SLURMJob(BaseModel):
+class SlurmModel(BaseModel):
     """
-    General SLURM job schema including job options and the job script path, used for
+    General SLURM job model including job options and the job script path, used for
     submitting a job through the REST API: <code>POST job/{jobid}</code> 
       
     Attributes:
@@ -230,4 +232,4 @@ class SLURMJob(BaseModel):
         job: SLURM sbatch options for the associated job
     """
     script: str
-    job: SLURMSubmit = Field(...)
+    job: SlurmSubmit = Field(...)

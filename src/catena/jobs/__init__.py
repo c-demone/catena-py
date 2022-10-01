@@ -5,8 +5,9 @@ from rich.columns import Columns
 from rich.panel import Panel
 from rich.console import Console
 import time
-from slurmjobs.lib.monitor import Monitor
 import os
+
+from .factory import Manifest
 
 
 class Jobs:
@@ -59,7 +60,7 @@ class Jobs:
 
 
     def get_job_content(self, job):
-        job_sum = job.request.job.dict()
+        job_sum = job.request.job.dict() # might just be job.dict()
         job_sum = {k:v for k,v in job_sum.items() if 'environment' not in k}
         job_sum = {k:v for k,v in job_sum.items() if 'name' not in k}
         job_string = ''
@@ -80,6 +81,7 @@ class Jobs:
         """)
     
     async def submit(self, delay:Optional[int]=3):
+        # TODO: make sure this works.
 
         for job in self.jobs:
 

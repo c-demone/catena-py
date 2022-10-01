@@ -1,2 +1,3 @@
 CONTEXT_ROOT:str = None
+MAIN_MANIFEST:str = None
 JOB_SCRIPT_ABSPATH:str = None

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "catena"
+version = "0.1.0"
+description = "Language agnostic, HPC driven DAG scheduler"
+authors = ["ludah65 <c.demone@hotmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+loguru = "^0.6.0"
+pydantic = "^1.10.2"
+paramiko = "^2.11.0"
+pycryptodome = "^3.15.0"
+setuptools = "^65.3.0"
+pathlib = "^1.0.1"
+networkx = "^2.8.6"
+matplotlib = "^3.6.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

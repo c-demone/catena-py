@@ -1,16 +1,30 @@
 from pydantic import BaseModel, validator
-from typing import List, Optional, Dict, Any
+from typing import (List, Optional, 
+                    Dict, Any, Literal, Union)
 from collections import namedtuple
 from pathlib import Path
 
-from .slurm_submit import SLURMSubmit
+from .slurm_submit import SlurmSubmit
 from . import ExtendedBaseModel
 from rich import print
 
 
-class JobOptions(SLURMSubmit):
+"""
+Job dependency type.
+
+Attributes:
+    type: type of dependency, where dependencies can be 
+        * after: after the specified job has started
+        * afterany: after the specified job has terminated 
+        * afterok: after the specified job has finished with exit code of zero
+        * afternotok: after the specfied job has finished with non-zero exit code
+        * singleton: after all previously launched jobs of the same name and user have ended.
+"""
+DependencyType = Literal['after', 'afterany', 'afterok', 'afternotok', 'singleton']
+
+class JobOptions(SlurmSubmit):
     """
-    Job options schema for job manifest. Extends SLURMSubmit which
+    Job options schema for job manifest. Extends SlurmSubmit which
     provides attributes corresponding to sbatch options in SLURM. 
     
       
@@ -48,6 +62,7 @@ class JobOptions(SLURMSubmit):
     job_script: Optional[str]
     job_script_args: Optional[List[str]] = None
     command: Optional[str]
+    dependencies: Optional[Dict[DependencyType, Union[str, List[str]]]]
 
     @validator('job_script')
     def expand_home_shortcut(cls, v):
@@ -87,8 +102,11 @@ class JobManifest(ExtendedBaseModel):
     """
     Model for parsing job manifests: describes the expected layout of a job manifest
     and provides methods for returning job definitions that can be used to initialize
-    a `slurmjobs` job instance (currently, SLURMRESTJob)
+    a `slurmjobs` job instance (currently, SlurmJob)
       
+    TODO: Add validator to ensure that depencies for a job do not list the job itself
+          as a dependency.
+
     Attributes:
         job_options: section of YML job manifest for defining global job options as a list.
             Global job options are tagged using anchors and referenced within a given job's
@@ -97,6 +115,9 @@ class JobManifest(ExtendedBaseModel):
         jobs:  list of instances of JobDefinition 
 
     """
+    cluster_profile: str
+    catena_config: Optional[str] = str(Path().home() / '.catena/conf.yml')
+    version: Optional[str] = "1.0"
     job_options: Optional[List[JobOptions]]
     jobs: Optional[List[Job]]
     
@@ -117,7 +138,8 @@ class JobManifest(ExtendedBaseModel):
                           'job_script',
                           'env_extra',
                           'job_script_args',
-                          'command']
+                          'command',
+                          'dependencies']
 
 
     def __filter_ext_opts(self, jobdef: JobOptions, field: str):
@@ -194,4 +216,4 @@ class JobManifest(ExtendedBaseModel):
                 jobdef['job'] = tmpjob
                 jobs.append(jobdef)
                 
-        return jobs          
+        return jobs         
