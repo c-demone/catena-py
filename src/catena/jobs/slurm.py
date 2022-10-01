@@ -18,6 +18,7 @@ from loguru import logger
 import subprocess
 import json
 from rich import inspect
+from collections import defaultdict
 
 
 # specify logger level formats
@@ -116,8 +117,9 @@ class SlurmJob:
         self.pyflake: Optional[bool] = pyflake
         self.job_script: Optional[Union[Callable[..., Any], str]] = job_script
         self.command: Optional[str]  = command
-        self.dependencies = dependencies 
-        
+        self.dependencies = dependencies
+        self.depmap = defaultdict(list)
+
         # if context not set, set context root to callable path
         if not env.CONTEXT_ROOT:
             cpath = Path(sys.argv[0])
@@ -168,8 +170,9 @@ class SlurmJob:
 
         # build request
         self.slurm_header = self.request_header()
-        self.request = SlurmModel(job=self.job_options(environment=self.environment, name=self.name, **kwargs),
-                                       script=self.script)
+        self.request = SlurmModel(job=self.job_options(environment=self.environment, 
+                                            name=self.name, dependency=self.depstr, 
+                                            **kwargs), script=self.script)
         self.jobid = None
         self.monitor_polls = 0
         self.job_monitor = {}
@@ -286,6 +289,17 @@ class SlurmJob:
             return None
         else:
             return time.time() - self.jwt_start_time
+
+    @property
+    def depstr(self):
+        depstr = ''
+        for deptype, deps in self.depmap.items():
+            tmp=''
+            for dep in deps:
+                tmp +=f"{dep.jobid}:"
+            depstr += f"{deptype}:{tmp.strip(':')},"
+        return depstr.strip(',')
+                
 
     def submit(self, job_monitor: Optional[bool]=False, delay: Optional[int]=0):
         """

@@ -1,7 +1,7 @@
-from ..jobs.slurm import SLURMRESTJob
+from .jobs.slurm import SlurmJob
 from .lib.yaml_loader import Loader
-from .schemas.slurm_submit import SLURMSubmit, SLURMJob
-from slurmjobs import run_manifest
+from .models.slurm_submit import SlurmModel, SlurmSubmit
+from catena import run_manifest
 import yaml
 import sys
 
