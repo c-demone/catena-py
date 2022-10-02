@@ -62,7 +62,7 @@ class CatenaConfig(ExtendedBaseModel):
             path = Path.home() / ".catena/conf.yml"
         
         if not Path(path).is_file():
-            print(f"⚠️ [red]file does not exist: {path}[/red]")
+            print(f"⚠️ [red] file does not exist: {path}[/red]")
             exit(1)
         
         # read manifest
@@ -80,12 +80,12 @@ class CatenaConfig(ExtendedBaseModel):
         return list(self.clusters.keys())
 
 
-    def get_cluster(self, name:str):
+    def get_profile(self, name:str):
         """
         Return configuration properties for the named cluster profile
         """
         if name in self.clusters:
             return self.clusters.get(name)
 
-        print(f"⚠️ [red]profile '{name}' does not exist[/red]")
+        print(f"⚠️ [red] profile '{name}' does not exist[/red]")
         print(f"Possiblities include: {self.cluster_profiles()}")
