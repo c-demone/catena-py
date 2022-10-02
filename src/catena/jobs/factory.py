@@ -166,7 +166,7 @@ class Manifest:
         """
         Close manifest context
         """
-        self.__exit__()
+        self.__exit__(*sys.exc_info())
 
     
     def parse_manifest(self):
