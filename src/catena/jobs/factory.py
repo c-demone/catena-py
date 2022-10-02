@@ -118,6 +118,8 @@ class Manifest:
         self.submitted = False
         self._submit = _submit
 
+        # add custom yaml constructor for manifest
+        Loader.add_constructor('!include', Loader.include)
 
     def __enter__(self):
         """
