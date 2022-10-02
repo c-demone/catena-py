@@ -1,0 +1,21 @@
+---
+version: 1.0
+cluster_profile: my_slurm_cluster1
+job_options:
+  - matlab: &julia
+      env_modules:
+        - julia/1.7.2
+      cpus_per_task: 2
+      tasks: 1
+      memory_per_node: '2GB'
+
+  - python: &python
+      env_modules:
+        - python/3.10.7
+      cpus_per_task: 2
+      tasks: 1
+      memory_per_node: '2GB'
+
+jobs: 
+  - !include julia_jobs.yml
+  - !include python_jobs.yml

@@ -1,0 +1,13 @@
+---
+jobs:
+  - python_test1:
+      job_script: "../../../scripts/test.py"
+      standard_out: '~/python_test1.out'
+      standard_error: '~/python_test1.err'   
+      job: *python
+  
+  - python_test2:
+      job_script: "../../../scripts/test.py"
+      standard_out: '~/python_test2.out'
+      standard_error: '~/python_test2.err'
+      job: *python
