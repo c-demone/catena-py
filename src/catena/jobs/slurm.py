@@ -5,21 +5,19 @@ from typing import Optional, Dict, List, Callable, Any, Union
 import requests
 import importlib.resources as pkg_resources
 from pathlib import Path
-
-import catena.lib as lib
-from catena.models.job_manifest import DependencyType
-from ..models import SlurmSubmit, SlurmCluster, SlurmModel
-from catena.lib import env, _read_code, ContextTree
-from catena.lib.scripts import JobScript
-from subprocess import Popen, PIPE
-import errno
+from subprocess import PIPE
 import time
 from loguru import logger
 import subprocess
 import json
-from rich import inspect
 from collections import defaultdict
 
+import catena.lib as lib
+from catena.models.job_manifest import DependencyType
+from ..models import (SlurmSubmit, SlurmCluster, 
+                      SlurmModel, CatenaConfig)
+from catena.lib import env, _read_code, ContextTree
+from catena.lib.scripts import JobScript
 
 # specify logger level formats
 logger.add('logs/log_{time:YYYY-MM-DD}.log',
@@ -98,7 +96,7 @@ class SlurmJob:
 
     def __init__(self,
                  name:str, 
-                 profile: SlurmCluster,
+                 profile: str,
                  user: Optional[str] = pwd.getpwuid(os.getuid()).pw_name,
                  env_modules: Optional[list] = None,
                  env_extra: Optional[Dict[str, Any]] = None,
@@ -113,6 +111,7 @@ class SlurmJob:
         
         
         self.name: str = name
+        self.profile: Union[str, SlurmCluster] = profile
         self.user: Optional[str] =user
         self.pyflake: Optional[bool] = pyflake
         self.job_script: Optional[Union[Callable[..., Any], str]] = job_script
@@ -151,10 +150,10 @@ class SlurmJob:
         
         
         # build request url
-        self.api_version = profile.api_version
-        self.protocol = profile.api_proto
-        self.host = profile.api_host
-        self.port = profile.api_port
+        self.api_version = self.profile.api_version
+        self.protocol = self.profile.api_proto
+        self.host = self.profile.api_host
+        self.port = self.profile.api_port
         self.url = f"{self.protocol}://{self.host}:{self.port}/slurm/v{self.api_version}/job/submit"
         
         # unload any loaded versions of python that could conflict
@@ -256,6 +255,28 @@ class SlurmJob:
         local_env = {k: v for k, v in local_env.items() if 'BASH_FUNC' not in k}
 
         self.environment = local_env
+
+    @property
+    def profile(self):
+        return self.__profile
+
+    @profile.setter
+    def profile(self, prof:str):
+        """
+        The default catena configuration file is expected in ~/.catena/conf.yml.
+        When the profile name alone is provided, catena will automatically look
+        at this path to find the profile. To define a profile defined at a non-
+        default path, one should specify 
+        
+            prof = profile_name@/path/to/config/file.yml
+        """
+        if '@' in prof:
+           conf = CatenaConfig.read(prof.split('@')[-1])
+           self.__profile = conf.get_profile(prof.split('@')[0])
+        else:
+            conf = CatenaConfig.read()
+            self.__profile = conf.get_profile(prof)
+        return self.__profile
 
     @property
     def jwt_lifespan(self):
