@@ -37,9 +37,9 @@ exec(mod_init)
 class SlurmJob:
     
     """
-    The `SLURMRESTJob` is the most basic type of job in the `slurmjobs` library.
+    The `SlurmJob` object is the most basic type of job in the `catena` library.
 
-    The `SLURMRESTJob` class provides a dynamic object for storing all information 
+    The `SlurmJob` class provides a dynamic object for storing all information 
     required to launch a job through the SLURM REST API programmatically, in
     Python. This type of SLURM `Job` is *best suited* for orchestrating work
     through the SLURM scheduler ***locally***, meaning this class is best used
@@ -48,7 +48,7 @@ class SlurmJob:
     *This class is meant to be extended by other job types*
 
     Attributes:
-        job_options: [SLURMSubmit](../schemas/slurm_job_schemas.md#slurm_submit) model 
+        job_options: [SlurmSubmit](../schemas/slurm_job_schemas.md#slurm_submit) model 
             containing all SLURM sbatch options
 
         name: SLURM job name, used to define the attribute of the same name in 
