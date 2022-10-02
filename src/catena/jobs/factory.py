@@ -159,7 +159,7 @@ class Manifest:
             data = safe_loader(f, Loader=Loader)
 
         conf = CatenaConfig.read(data.get('catena_config'))
-        cp = conf.get_cluster(data.get('cluster_profile'))
+        cp = conf.get_profile(data.get('cluster_profile'))
 
         # when using !include end up with list of lists for jobs
         if isinstance(data['jobs'][0], list): 
@@ -179,10 +179,14 @@ class Manifest:
 
         jobdefs = JobManifest(**data).expand_jobs()
         for jobdef in jobdefs:
-            #TODO: Add cluster_profile to get backend and determin job type
+            #TODO: Add cluster_profile to get backend and determine job type
             # to accomodate more than slurm in the future.
             if cp.backend == 'slurm':
-                with SlurmJob(profile=cp._cluster,
+                if data.get('catena_config') is None:
+                    _profile = data.get('cluster_profile')
+                else:
+                    _profile = f"{data.get('cluster_profile')}@{data.get('catena_config')}"
+                with SlurmJob(profile=data.get('cluster_profile'),
                               env_modules=jobdef.env_modules, 
                               job_script=jobdef.job_script,
                               job_script_args=jobdef.job_script_args,
