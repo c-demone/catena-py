@@ -25,8 +25,6 @@ import sys
 from pathlib import Path
 from rich import inspect
 
-
-
 sys.path.append(str(Path(*list(Path(__file__).parent.resolve().parts[:-2]))/"src"))
 
 from catena.jobs.slurm import SlurmJob
