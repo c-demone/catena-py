@@ -1,0 +1,54 @@
+---
+version: 1.0
+cluster_profile: 'my_slurm_cluster1'
+job_options:
+  - matlab: &matlab
+      env_modules:
+        - matlab/96
+      standard_out: '~/man_matlab.out'
+      standard_error: '~/man_matlab.err'
+      cpus_per_task: 2
+      tasks: 1
+      memory_per_node: '2GB'
+
+  - python: &python
+      env_modules:
+        - python/3.10.7
+      standard_out: '~/man_python.out'
+      standard_error: '~/man_python.err'
+      cpus_per_task: 2
+      tasks: 1
+      memory_per_node: '2GB'
+
+  - R: &r
+      env_modules:
+        - R/4.2.1
+      standard_out: '~/man_python.out'
+      standard_error: '~/man_python.err'
+      cpus_per_task: 2
+      tasks: 1
+      memory_per_node: '2GB'
+
+  - julia: &julia
+      env_modules:
+        - julia/1.8.1
+      standard_out: '~/man_julia.out'
+      standard_error: '~/man_julia.err'
+      cpus_per_task: 2
+      tasks: 1
+      memory_per_node: '2GB'   
+
+
+jobs:
+  
+  - python_test:
+      job_script: "../../scripts/test.py"
+      job: *python
+  
+  - r_test:
+      job_script: "../../scripts/test.r"
+      job: *r
+  
+  - julia_test:
+      job_script: "../../scripts/test.jl"
+      job: *julia 
