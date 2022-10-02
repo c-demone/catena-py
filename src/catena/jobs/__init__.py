@@ -7,4 +7,4 @@ from rich.console import Console
 import time
 import os
 
-from .factory import Manifest
+from .factory import Jobs, Manifest
