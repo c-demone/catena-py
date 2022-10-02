@@ -118,11 +118,6 @@ class Manifest:
         self.submitted = False
         self._submit = _submit
 
-        self.parse_manifest()
-
-        if _submit:
-            self.submit()
-
 
     def __enter__(self):
         """
@@ -140,21 +135,41 @@ class Manifest:
                 
                 self.manifest = Path(Path(cpath.resolve()).parent) / self.manifest
                 ppath = Path(self.manifest)
-            
             env.CONTEXT_ROOT = Path(ppath.resolve()).parent
             self.manifest = Path(env.CONTEXT_ROOT) / env.MAIN_MANIFEST
 
         else:
             env.CONTEXT_ROOT = ppath.parent
 
+        self.parse_manifest()
 
     def __exit__(self, exc_type,exc_value, exc_traceback):
         env.CONTEXT_ROOT = None
         env.MAIN_MANIFEST = None
 
+
+    def open(self):
+        """
+        Open manifest context
+        """
+        self.__enter__()
+
+        if self._submit:
+            self.submit()
+        
+        return self
+    
+
+    def close(self):
+        """
+        Close manifest context
+        """
+        self.__exit__()
+
     
     def parse_manifest(self):
         # read manifest
+
         with open(self.manifest, 'r') as f:
             data = safe_loader(f, Loader=Loader)
 
