@@ -47,15 +47,13 @@ markdown_extensions:
 
 nav:
     - Home: 'index.md'
-    - Schemas: 
-    - SLURM Jobs: 'models/slurm_job_schemas.md'
+    - Models: 
+      - SLURM Jobs: 'models/slurm_job_schemas.md'
       - Job Manifests: 'models/job_manifests.md'
       - Model Extensions: 'models/extensions.md'
     - Jobs: 
       - SLURMRESTJob: 'jobs/slurmrestjob.md'
     - Job Manifests: 'manifests.md'
-      #- Remote Jobs: 'manifest/remote.md'
-      #- Mixed
     - Examples:
       - Example 1 - Using SLURMRESTJob to Submit Job Locally: 
         - Running the Example: 'examples/example1.md'
