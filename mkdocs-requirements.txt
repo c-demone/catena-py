@@ -1,0 +1,9 @@
+mkdocs
+mkdocs-material
+mkdocs-material-extensions
+mkdocstrings-python
+mkdocstrings
+jupyterthemes
+mkdocs-jupyter
+rich
+mkdocs-awesome-pages-plugin

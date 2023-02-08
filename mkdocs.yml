@@ -1,0 +1,103 @@
+site_name: Catena
+repo_name: ludah65/catena
+repo_url: https://github.com/ludah65/catena-py
+edit_uri: ""
+theme:
+  features:
+    - content.code.annotate
+  name: material
+  logo: img/slurmjobs-icon.png
+  palette:
+    - scheme: slate
+      primary: amber
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode  
+    - scheme: default
+      primary: amber
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+
+nav:
+    - Home: 'index.md'
+    - Schemas: 
+    - SLURM Jobs: 'models/slurm_job_schemas.md'
+      - Job Manifests: 'models/job_manifests.md'
+      - Model Extensions: 'models/extensions.md'
+    - Jobs: 
+      - SLURMRESTJob: 'jobs/slurmrestjob.md'
+    - Job Manifests: 'manifests.md'
+      #- Remote Jobs: 'manifest/remote.md'
+      #- Mixed
+    - Examples:
+      - Example 1 - Using SLURMRESTJob to Submit Job Locally: 
+        - Running the Example: 'examples/example1.md'
+        - code_samples/example1.ipynb
+      - Example 2a - Using Job Manifests to Organize Workloads: 
+        - Running the Example: 'examples/example2a.md'
+        - code_samples/example2a.ipynb
+      - Example 2b - Using the !include Constructor to Define Jobs: 
+        - Running the Example: 'examples/example2b.md'
+        - code_samples/example2b.ipynb
+      - Example 3 - Best Practices for Complex Manifests:
+        - Running the Example: 'examples/example3.md'
+        - code_samples/example3.ipynb
+      - Example Pyspark : 'examples/pyspark_example.md'
+
+    - Extra:
+       - Writing Documentation for slurmjobs: 'extra/documentation.md'
+       - The SLURM REST API: 'extra/slurmapi.md'
+       
+
+
+plugins:
+  - search
+  - awesome-pages
+  - mkdocs-jupyter:
+      execute: True
+      kernel_name: python3
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.insert(0, ".")
+            - from pydantic import BaseModel, Field, validator
+            - from typing import Optional, Union
+
+
+extra_css:
+    - 'css/termynal.css'
+    - 'css/custom.css'
+    - 'css/jupyter.css'
+
+extra_javascript:
+    - 'js/termynal.js'
+    - 'js/custom.js'
