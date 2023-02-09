@@ -62,7 +62,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
   
     
     
@@ -118,20 +118,20 @@
           
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
           
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
             </label>
           
         
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jobs/slurmrestjob/" class="md-nav__link">
+      <a href="../../jobs/slurmrestjob.md" class="md-nav__link">
         SLURMRESTJob
       </a>
     </li>
@@ -652,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pyspark_example/" class="md-nav__link">
+      <a href="../pyspark_example.md" class="md-nav__link">
         Example Pyspark
       </a>
     </li>
@@ -783,25 +783,25 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> any number of sub-directories can be included and referenced within the main manifest root directory</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> all relative paths defined within all YML files will be taken relative to the main manifest root directory</li>
 </ul>
-<p>The main manifest root in this example can be found in <code>examples/2_job_manifests_bp/knitrotest/</code>. Here you will find 4 directories.</p>
+<p>The main manifest root in this example can be found in <code>examples/2_job_manifests_bp/complextest/</code>. Here you will find 4 directories.</p>
 <ol>
 <li><strong>jobs</strong>: contains YML files with <code>job</code> definitions that are referenced in the main manifest using the <code>!include</code> constructor</li>
 <li><strong>opts</strong>: contains YML files with global <code>job_options</code>, also reference in the main manifest using the <code>!include</code> constructor</li>
 <li><strong>scripts</strong>: contains scripts of various languages (particularly Python and R for this example)</li>
 <li><strong>output</strong>: directory used to store stdout and stderr files from SLURM jobs</li>
 </ol>
-<p>The main job manifest is also found in this directory and is named <code>knitro-manifest.yaml</code> after its purpose: testing various versions of R and Python with a new version of the optimization library <a href="https://www.artelys.com/docs/knitro/">KNITRO</a></p>
+<p>The main job manifest is also found in this directory and is named <code>complex-manifest.yaml</code> after its purpose: testing various versions of R and Python with a new version of the optimization library <a href="https://www.artelys.com/docs/knitro/">KNITRO</a></p>
 <p>Let's take a look at each of these here:</p>
-<p><em>knitro-manifest.yaml</em>
+<p><em>complex-manifest.yaml</em>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">job_options</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opts/knitrotest_opts.yaml</span>
-<span class="nt">jobs</span><span class="p">:</span><span class="w"> </span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jobs/r_jobs.yaml</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jobs/python_jobs.yaml</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">complex_test</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;job_opts</span>
+<span class="w">      </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
 </code></pre></div></p>
 <p>The included global <code>job_options</code> are taken from the following:</p>
-<p><em>opts/knitrotest_opts.yaml</em>
+<p><em>opts/job_opts.yaml</em>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">job_options</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">knitrotest</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;knitrotest</span>
@@ -810,85 +810,35 @@
 <span class="w">      </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
 </code></pre></div></p>
 <p>And the included <code>jobs</code> are taken from the following:</p>
-<p><em>jobs/python_jobs.yaml</em>
+<p><em>jobs/python_jobs.yml</em>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test1</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/exampleConic1.py&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/knitro_test/anaconda202011_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/knitro_test/anaconda202011_test.err&#39;</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/complex-test/python3.10.7_test.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/complex-test/python3.10.7_test.err&#39;</span>
 <span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2020.11</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python/3.10.7</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*job_opts</span>
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test2</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/exampleConic1.py&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda202105_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda202105_test.err&#39;</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/complex-test/python3.8.14_test.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/complex-test/python3.8.14.err&#39;</span>
 <span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2021.05</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test3</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/exampleConic1.py&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda201907_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda201907_test.err&#39;</span>
-<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2019.07</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test4</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/exampleConic1.py&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda201812_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda201812_test.err&#39;</span>
-<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2018.12</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test5</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/exampleConic1.py&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda520_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/anaconda/anaconda520_test.err&#39;</span>
-<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/5.2.0</span>
-<span class="w">      </span><span class="nt">env_extra</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">EXAMPLE_ENV_VAR</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/extra/env/vars/go/here&#39;</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3/3.8.14</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*job_opts</span>
 </code></pre></div></p>
-<p><em>jobs/r_jobs.yaml</em>
+<p><em>jobs/r_jobs.yml</em>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">r_test1</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/rosenbrock.R&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r400_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r400_test.err&#39;</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r421_test.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r421_test.err&#39;</span>
 <span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">R/3.6.3</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">r_test2</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/rosenbrock.R&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r400_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r400_test.err&#39;</span>
-<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">R/4.0.0</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">r_test3</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/rosenbrock.R&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r404_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r404_test.err&#39;</span>
-<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">R/4.0.4</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">r_test4</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/rosenbrock.R&quot;</span>
-<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r410_test.out&#39;</span>
-<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/r/r410_test.err&#39;</span>
-<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">R/4.1.0</span>
-<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*knitrotest</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">R/4.2.1</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*job_opts</span>
 </code></pre></div></p>
 <h2 id="running-the-example-from-the-cloned-repository">Running the Example from the Cloned Repository</h2>
 <p><em>See a Jupyter Notebook code sample for this example <a href="../code_samples/example3.ipynb">here</a> if you're not interested in runnning it yourself</em></p>
@@ -897,14 +847,6 @@
 
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>examples/2_job_manifests_bp/
 <span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2021.05
-</code></pre></div>
-
-</div>
-<p></br></p>
-<p>📍 <strong>Unload the proxy</strong> (or you won't be able to connect to the API)</p>
-<div class="termy">
-
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>module<span class="w"> </span>unload<span class="w"> </span>proxy
 </code></pre></div>
 
 </div>
@@ -956,13 +898,13 @@
       
       
         
-        <a href="../pyspark_example/" class="md-footer__link md-footer__link--next" aria-label="Next: Example Pyspark" rel="next">
+        <a href="../../extra/documentation/" class="md-footer__link md-footer__link--next" aria-label="Next: Writing Documentation for catena" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Example Pyspark
+              Writing Documentation for catena
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -62,7 +62,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
   
     
     
@@ -118,20 +118,20 @@
           
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
           
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
             </label>
           
         
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jobs/slurmrestjob/" class="md-nav__link">
+      <a href="../../jobs/slurmrestjob.md" class="md-nav__link">
         SLURMRESTJob
       </a>
     </li>
@@ -652,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pyspark_example/" class="md-nav__link">
+      <a href="../pyspark_example.md" class="md-nav__link">
         Example Pyspark
       </a>
     </li>
@@ -781,64 +781,68 @@
 <p>This example introduces the concept of <a href="../../manifests/#include_const">!include</a> constructor that can be used to organize more complex job manifiests. Specifically, we will see how we can include jobs in a manifest from any number of external YAML files.</p>
 <p>The manifests used in this example can be found in <code>examples/1_job_manifests/sample_manifests/include_example</code>. Here you will find 3 YAML files:</p>
 <ol>
-<li>advanced_manifest.yaml</li>
-<li>matlab_jobs.yaml</li>
-<li>python_jobs.yaml</li>
+<li>advanced_manifest.yml</li>
+<li>julia_jobs.yml</li>
+<li>python_jobs.yml</li>
 </ol>
 <p>Let's take a look at each of these here:</p>
-<p><em>advance_manifest.yaml</em>
+<p><em>advance_manifest.yml</em>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+<span class="nt">cluster_profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_slurm_cluster1</span>
 <span class="nt">job_options</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">matlab</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;matlab</span>
-<span class="w">    </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab/96</span>
-<span class="w">    </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">    </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;julia</span>
+<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">julia/1.7.2</span>
+<span class="w">      </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
 
-<span class="w">  </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;python</span>
-<span class="w">    </span><span class="nt">env_modules</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2021.05</span>
-<span class="w">    </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">    </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;python</span>
+<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python/3.10.7</span>
+<span class="w">      </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
 
 <span class="nt">jobs</span><span class="p">:</span><span class="w"> </span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab_jobs.yaml</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_jobs.yaml</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">julia_jobs.yml</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_jobs.yml</span>
 </code></pre></div>
 This is the primary <em>manifest</em> that would be executed. The next two YAML files provide lists of job definitions. The first comprised entirely of MATLAB jobs while the second defines a list of Python jobs. This is one way in which the <code>!include</code> constructor can be used to 
 organize a manifest better, and avoid having a single monstrous manifest for more complex workloads.</p>
-<p><em>matlab_jobs.yaml</em>
+<p><em>julia_jobs.yml</em>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_test1</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../scripts/test.m&quot;</span>
-<span class="w">    </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/matlab_test1.out&#39;</span>
-<span class="w">    </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/matlab_test1.err&#39;</span>
-<span class="w">    </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*matlab</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">julia_test1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../../../scripts/test.jl&quot;</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/julia_test1.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/julia_test1.err&#39;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*julia</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_test2</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../scripts/test.m&quot;</span>
-<span class="w">    </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/matlab_test2.out&#39;</span>
-<span class="w">    </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/matlab_test2.err&#39;</span>
-<span class="w">    </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*matlab</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">julia_test2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../../../scripts/test.jl&quot;</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/julia_test2.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/julia_test2.err&#39;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*julia</span>
 </code></pre></div></p>
-<p><em>python_jobs.yaml</em>
+<p><em>python_jobs.yml</em>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test1</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../scripts/test.py&quot;</span>
-<span class="w">    </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/python_test1.out&#39;</span>
-<span class="w">    </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/python_test1.err&#39;</span><span class="w">   </span>
-<span class="w">    </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../../../scripts/test.py&quot;</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/python_test1.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/python_test1.err&#39;</span><span class="w">   </span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test2</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../scripts/test.py&quot;</span>
-<span class="w">    </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/python_test2.out&#39;</span>
-<span class="w">    </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/home/mfa/dech/python_test2.err&#39;</span>
-<span class="w">    </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_test2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../../../scripts/test.py&quot;</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/python_test2.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/python_test2.err&#39;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
 </code></pre></div></p>
-<p>Notice that  in both <code>matlab_jobs.yaml</code> and <code>python_jobs.yaml</code> there are two SLURM configuration properties that are defined locally within the job definition block outside of the <code>job</code> section or not globally using the <code>*python</code> alias or <code>*matlab</code> alias. This is useful when you'd like to have a series of jobs with similar resources requirements that can be defined through the use of <em>aliases</em> such as <code>*python</code> but also have some SLURM configuration options that you'd like to be different between each job definition. This is most apparent for <code>standard_out</code> and <code>standard_error</code> where having the same value accross jobs would result in the stdout and stderr files produced by one job being overwritten by the next.</p>
-<p>These are termed <em>local</em> job definitions, and they can be used for any SLURM configuration option found within the <a href="../schemas/slurm_job_schemas.md#slurm_submit">SLURMSubmit</a> schema. The exceptions to this include:</p>
+<p>Notice that  in both <code>julia_jobs.yml</code> and <code>python_jobs.yml</code> there are two SLURM configuration properties that are defined locally within the job definition block outside of the <code>job</code> section or not globally using the <code>*python</code> alias or <code>*julia</code> alias. This is useful when you'd like to have a series of jobs with similar resources requirements that can be defined through the use of <em>aliases</em> such as <code>*python</code> but also have some SLURM configuration options that you'd like to be different between each job definition. This is most apparent for <code>standard_out</code> and <code>standard_error</code> where having the same value accross jobs would result in the stdout and stderr files produced by one job being overwritten by the next.</p>
+<p>These are termed <em>local</em> job definitions, and they can be used for any SLURM configuration option found within the <a href="../models/slurm_job_schemas.md#slurm_submit">SlurmSubmit</a> schema. The exceptions to this include:</p>
 <ol>
 <li>
 <p><code>name</code>: the job name is a required parameter that must be defined as the key or head of the node of the local job def (e.g: <code>- python_test2:</code> as shown in <em>python_jobs.yaml</em>)</p>
@@ -854,14 +858,6 @@ organize a manifest better, and avoid having a single monstrous manifest for mor
 
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>slurmjobs/examples/1_job_manifests
 <span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2021.05
-</code></pre></div>
-
-</div>
-<p></br></p>
-<p>📍 <strong>Unload the proxy</strong> if it's loaded (or you won't be able to connect to the API)</p>
-<div class="termy">
-
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>module<span class="w"> </span>unload<span class="w"> </span>proxy
 </code></pre></div>
 
 </div>
