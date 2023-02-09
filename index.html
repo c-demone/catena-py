@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slurmjobs-a-python-utility-for-submitting-work-to-a-slurm-cluster" class="md-skip">
+        <a href="#catena-a-python-utility-for-submitting-work-to-a-slurm-cluster" class="md-skip">
           Skip to content
         </a>
       
@@ -269,8 +269,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#slurmjobs-a-python-utility-for-submitting-work-to-a-slurm-cluster" class="md-nav__link">
-    slurmjobs a Python Utility for Submitting Work to a SLURM Cluster
+  <a href="#catena-a-python-utility-for-submitting-work-to-a-slurm-cluster" class="md-nav__link">
+    catena a Python Utility for Submitting Work to a SLURM Cluster
   </a>
   
 </li>
@@ -766,8 +766,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#slurmjobs-a-python-utility-for-submitting-work-to-a-slurm-cluster" class="md-nav__link">
-    slurmjobs a Python Utility for Submitting Work to a SLURM Cluster
+  <a href="#catena-a-python-utility-for-submitting-work-to-a-slurm-cluster" class="md-nav__link">
+    catena a Python Utility for Submitting Work to a SLURM Cluster
   </a>
   
 </li>
@@ -815,8 +815,8 @@
 </p>
 
 <hr />
-<h2 id="slurmjobs-a-python-utility-for-submitting-work-to-a-slurm-cluster"><strong><code>slurmjobs</code> a Python Utility for Submitting Work to a SLURM Cluster</strong></h2>
-<p><code>slurmjobs</code> is a Python library for interacting with SLURM through the REST API. In particular,  the library is focused on  the submission of jobs to a SLURM cluster, either locally or remotely.</p>
+<h2 id="catena-a-python-utility-for-submitting-work-to-a-slurm-cluster"><strong><code>catena</code> a Python Utility for Submitting Work to a SLURM Cluster</strong></h2>
+<p><code>catena</code> is a Python library for interacting with SLURM through the REST API. In particular,  the library is focused on  the submission of jobs to a SLURM cluster, either locally or remotely.</p>
 <p>📝 <strong>Note</strong>: Currently only works when running locally on a SLURM HPC (e.g. Edith)</p>
 <hr />
 <h2 id="key-features">📋 <strong>Key Features</strong></h2>
@@ -841,27 +841,18 @@
 <p>📍 Move into the repo and load <code>anaconda3/2021.05</code> (or your favourite version, as long as python &gt;= 3.6)</p>
 <div class="termy">
 
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>slurmjobs/examples
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>catena/examples
 <span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2021.05
 </code></pre></div>
 
 </div>
 
-<p>📍 Ensure the proxy is loaded and install all requirements for slurmjobs</p>
+<p>📍 Install all requirements for catena</p>
 <div class="termy">
 
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>proxy
-<span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 <span class="go">---&gt; 100%</span>
 </code></pre></div>
-</div>
-
-<p>📍 Once all requirements are installed, the proxy should be unloaded to be able to hit the API.</p>
-<div class="termy">
-
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>module<span class="w"> </span>unload<span class="w"> </span>proxy
-</code></pre></div>
-
 </div>
 
 <p>📝<strong>Note</strong>: This is only setup to run local jobs currently. Hence, you should be on Edith while running this code and the <strong>proxy should be unloaded</strong>.</p>
