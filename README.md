@@ -1,5 +1,5 @@
 <p align="center">
-  <img src='static/img/catena-logo.png' width=500px height=225px/>
+  <img src='static/catena-logo.png' width=500px height=225px/>
 </p>
 # catena-py
 
