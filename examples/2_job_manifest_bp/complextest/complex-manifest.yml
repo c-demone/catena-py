@@ -1,0 +1,6 @@
+---
+job_options:
+  - !include opts/job_opts.yml
+jobs: 
+  - !include jobs/r_jobs.yml
+  - !include jobs/python_jobs.yml

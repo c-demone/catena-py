@@ -1,0 +1,9 @@
+---
+jobs:
+  - r_test1:
+      job_script: "scripts/rosenbrock.R"
+      standard_out: 'output/r/r421_test.out'
+      standard_error: 'output/r/r421_test.err'
+      env_modules:
+        - R/4.2.1
+      job: *job_opts

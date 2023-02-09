@@ -1,0 +1,17 @@
+---
+jobs:
+  - python_test1:
+      job_script: "scripts/exampleConic1.py"
+      standard_out: 'output/complex-test/python3.10.7_test.out'
+      standard_error: 'output/complex-test/python3.10.7_test.err'
+      env_modules:
+        - python/3.10.7
+      job: *job_opts
+  
+  - python_test2:
+      job_script: "scripts/exampleConic1.py"
+      standard_out: 'output/complex-test/python3.8.14_test.out'
+      standard_error: 'output/complex-test/python3.8.14.err'
+      env_modules:
+        - python3/3.8.14
+      job: *job_opts

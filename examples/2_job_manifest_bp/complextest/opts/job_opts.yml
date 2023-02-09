@@ -1,0 +1,6 @@
+---
+job_options:
+  - complex_test: &job_opts
+      cpus_per_task: 2
+      tasks: 1
+      memory_per_node: '2GB'
