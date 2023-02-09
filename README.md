@@ -6,4 +6,4 @@
 
 Python version of catena
 
-See documentation [here](https://ludah65.github.io/catena-py/) 
+See documentation [here](https://c-demone.github.io/catena-py/) 
