@@ -6,4 +6,6 @@
 
 Python version of catena
 
-See documentation [here](https://c-demone.github.io/catena-py/) 
+See documentation [here](https://c-demone.github.io/catena-py/)
+
+📋 **Note**: documentation is still being reformated as project is being migrated.
