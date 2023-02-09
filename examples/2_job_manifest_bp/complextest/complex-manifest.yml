@@ -1,4 +1,6 @@
 ---
+version: 1.0
+cluster_profile: 'my_slurm_cluster1'
 job_options:
   - !include opts/job_opts.yml
 jobs: 
