@@ -1,7 +1,8 @@
 <p align="center">
-  <img src='static/catena-logo.png' width=575px height=225px/>
+  <img src='static/catena-logo.png' width=500px height=275px/>
 </p>
-# catena-py
+
+# Catena
 
 Python version of catena
 
