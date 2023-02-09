@@ -8,7 +8,9 @@ Job manifests are YAML files that allows you to organize instructions for submit
 
 ## Structure of a Job Manifest
 
-They are comprised of two sections:
+At the top of the manifest we specify the schema version and a cluster profile. The cluster profile provides the name of the SLURM cluster to which the jobs should be submitted. The configuration is specfied in the users HOME directory in `$HOME/.catena/conf.yml`. The schema for this can be seen [here](../models/config#config_model)
+
+After that, they are comprised of two sections:
 
 1. **job_options** (*Optional*): Section under which job option blocks can be added. Each of these named configuration sets defines SLURM sbatch options and environment modules that should be loaded for a given job. A single option block can be applied to a single job, or multiple jobs that run different scripts, but have similar requirements. These named configuration sets are referenced using the built-in <code>&</code> and <code>*</code> constructors in YAML.
    
@@ -56,6 +58,8 @@ Any number of jobs can be defined under the <code>jobs</code> section.
 
 ```yaml
 ---
+version: 1.0
+cluster_profile: 'my_slurm_cluster1'
 jobs:
   - job_name1:
       job_sript: "path to script to be run"
@@ -153,6 +157,8 @@ Which is equivalent to
 
 ```yaml
 ---
+version: 1.0
+cluster_profile: 'my_slurm_cluster'
 jobs:
   
   - matlab_job1:
