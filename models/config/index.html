@@ -346,6 +346,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#catena.models.config.ClusterDefinition" class="md-nav__link">
+    catena.models.config.ClusterDefinition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.config.SlurmCluster" class="md-nav__link">
+    catena.models.config.SlurmCluster
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -823,6 +837,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#catena.models.config.ClusterDefinition" class="md-nav__link">
+    catena.models.config.ClusterDefinition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.config.SlurmCluster" class="md-nav__link">
+    catena.models.config.SlurmCluster
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1082,6 +1110,128 @@ file</p>
   </div>
 
 </div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+<a id="catena.models.config.ClusterDefinition"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/config.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ClusterDefinition</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">backend</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;slurm&#39;</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="n">Extra</span><span class="o">.</span><span class="n">allow</span>
+        <span class="n">arbitrary_types_allowed</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">cluster_args</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span>  <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__fields__</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span> <span class="o">==</span> <span class="s1">&#39;slurm&#39;</span><span class="p">:</span>
+            <span class="n">slurm_cluster</span> <span class="o">=</span> <span class="n">SlurmCluster</span><span class="p">(</span><span class="o">**</span><span class="n">cluster_args</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">slurm_cluster</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cluster</span> <span class="o">=</span> <span class="n">slurm_cluster</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+<a id="catena.models.config.SlurmCluster"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/config.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SlurmCluster</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">api_host</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">api_proto</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http&#39;</span>
+    <span class="n">api_version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0.0.35&#39;</span>
+    <span class="n">api_port</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;6820&#39;</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">api_version_compat</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.0.35&#39;</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
 
 
 
