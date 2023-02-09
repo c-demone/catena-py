@@ -1,0 +1,22 @@
+/* Change outer background and make the notebook take all available width */
+.container {
+    width: 99% !important;
+    background: rgb(53, 53, 51) !important;
+}   
+
+/* Change inner background (CODE) */
+div.input_area {
+    background: #2f2f2e !important;
+    font-size: 16px !important;
+}
+
+/* Change global font size (CODE) */
+.CodeMirror {
+    font-size: 16px !important;
+}  
+
+/* Prevent the edit cell highlight box from getting clipped;
+ * important so that it also works when cell is in edit mode */
+div.cell.selected {
+    border-left-width: 1px !important;
+} 

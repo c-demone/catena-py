@@ -1,0 +1,1882 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Job Manifests - Catena</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jobmanifest" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Catena" class="md-header__button md-logo" aria-label="Catena" data-md-component="logo">
+      
+  <img src="../../img/slurmjobs-icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Catena
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Job Manifests
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ludah65/catena-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ludah65/catena
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Catena" class="md-nav__button md-logo" aria-label="Catena" data-md-component="logo">
+      
+  <img src="../../img/slurmjobs-icon.png" alt="logo">
+
+    </a>
+    Catena
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ludah65/catena-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ludah65/catena
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Models" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm_job_models/" class="md-nav__link">
+        SLURM Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Job Manifests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Job Manifests
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jobmanifest" class="md-nav__link">
+    JobManifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest" class="md-nav__link">
+    catena.models.job_manifest.JobManifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest.Config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest.__filter_ext_opts" class="md-nav__link">
+    __filter_ext_opts()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest.expand_jobs" class="md-nav__link">
+    expand_jobs()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joboptions" class="md-nav__link">
+    JobOptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobOptions" class="md-nav__link">
+    catena.models.job_manifest.JobOptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobdefinition" class="md-nav__link">
+    JobDefinition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobDefinition" class="md-nav__link">
+    catena.models.job_manifest.JobDefinition
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/" class="md-nav__link">
+        Model Extensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jobs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Jobs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jobs/slurmrestjob/" class="md-nav__link">
+        SLURMRESTJob
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manifests/" class="md-nav__link">
+        Job Manifests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Example 1 - Using SLURMRESTJob to Submit Job Locally
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 1 - Using SLURMRESTJob to Submit Job Locally" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Example 1 - Using SLURMRESTJob to Submit Job Locally
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example1/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Example 2a - Using Job Manifests to Organize Workloads
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 2a - Using Job Manifests to Organize Workloads" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Example 2a - Using Job Manifests to Organize Workloads
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example2a/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          Example 2b - Using the !include Constructor to Define Jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 2b - Using the !include Constructor to Define Jobs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Example 2b - Using the !include Constructor to Define Jobs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example2b/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Example 3 - Best Practices for Complex Manifests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 3 - Best Practices for Complex Manifests" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Example 3 - Best Practices for Complex Manifests
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example3/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/pyspark_example/" class="md-nav__link">
+        Example Pyspark
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Extra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Extra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extra/documentation/" class="md-nav__link">
+        Writing Documentation for catena
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extra/slurmapi/" class="md-nav__link">
+        The SLURM REST API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jobmanifest" class="md-nav__link">
+    JobManifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest" class="md-nav__link">
+    catena.models.job_manifest.JobManifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest.Config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest.__filter_ext_opts" class="md-nav__link">
+    __filter_ext_opts()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobManifest.expand_jobs" class="md-nav__link">
+    expand_jobs()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joboptions" class="md-nav__link">
+    JobOptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobOptions" class="md-nav__link">
+    catena.models.job_manifest.JobOptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobdefinition" class="md-nav__link">
+    JobDefinition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.job_manifest.JobDefinition" class="md-nav__link">
+    catena.models.job_manifest.JobDefinition
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Job Manifests</h1>
+
+<h2 id="jobmanifest"><a name="job_manifest"></a><code>JobManifest</code></h2>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="catena.models.job_manifest.JobManifest"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="catena.models.extensions.ExtendedBaseModel" href="../extensions/#catena.models.extensions.ExtendedBaseModel">ExtendedBaseModel</a></code></p>
+
+  
+      <p>Model for parsing job manifests: describes the expected layout of a job manifest
+and provides methods for returning job definitions that can be used to initialize
+a <code>slurmjobs</code> job instance (currently, SlurmJob)</p>
+
+<details class="todo">
+  <summary>Add validator to ensure that depencies for a job do not list the job itself</summary>
+  <p>as a dependency.</p>
+</details>
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>job_options</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="catena.models.job_manifest.JobOptions" href="#catena.models.job_manifest.JobOptions">JobOptions</a>]]</code>
+          </td>
+          <td><p>section of YML job manifest for defining global job options as a list.
+Global job options are tagged using anchors and referenced within a given job's
+job definition, under the <code>job</code> field. All job options that </p></td>
+        </tr>
+        <tr>
+          <td><code>jobs</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="catena.models.job_manifest.Job">Job</span>]]</code>
+          </td>
+          <td><p>list of instances of JobDefinition</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/job_manifest.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">JobManifest</span><span class="p">(</span><span class="n">ExtendedBaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Model for parsing job manifests: describes the expected layout of a job manifest</span>
+<span class="sd">    and provides methods for returning job definitions that can be used to initialize</span>
+<span class="sd">    a `slurmjobs` job instance (currently, SlurmJob)</span>
+
+<span class="sd">    TODO: Add validator to ensure that depencies for a job do not list the job itself</span>
+<span class="sd">          as a dependency.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        job_options: section of YML job manifest for defining global job options as a list.</span>
+<span class="sd">            Global job options are tagged using anchors and referenced within a given job&#39;s</span>
+<span class="sd">            job definition, under the `job` field. All job options that </span>
+
+<span class="sd">        jobs:  list of instances of JobDefinition </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cluster_profile</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">catena_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;.catena/conf.yml&#39;</span><span class="p">)</span>
+    <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span>
+    <span class="n">job_options</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">JobOptions</span><span class="p">]]</span>
+    <span class="n">jobs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Job</span><span class="p">]]</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        `JobManifest` model `Config` sub-class: can be accessed internally</span>
+<span class="sd">        as `self.Config` or `JobManifest.Config`. The config class of a Pydantic model is also</span>
+<span class="sd">        passed as a kwarg to validators and acts as a useful means of </span>
+<span class="sd">        storing external variables that are accesible to field </span>
+<span class="sd">        validators.</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            ext_opts: extra job options that are separate from SLURM job options.</span>
+<span class="sd">                This difference is abstracted to the user, but is managed</span>
+<span class="sd">                internally.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ext_opts</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;env_modules&#39;</span><span class="p">,</span> 
+                          <span class="s1">&#39;job_script&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;env_extra&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;job_script_args&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;command&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;dependencies&#39;</span><span class="p">]</span>
+
+
+    <span class="k">def</span> <span class="nf">__filter_ext_opts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jobdef</span><span class="p">:</span> <span class="n">JobOptions</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter non sbatch options from job (global opts) field. Local</span>
+<span class="sd">        job opts will always take precedence over those defined globally</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">field_val</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> 
+            <span class="n">jobdef</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">field_val</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+            <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1">#and</span>
+              <span class="n">field_val</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">field_val</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">jobdef</span><span class="p">,</span> <span class="n">field_val</span>
+
+
+    <span class="k">def</span> <span class="nf">expand_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return list of job definitions processed from a initialized instance</span>
+<span class="sd">        of `self` or `JobManifest`. The fields defined within this model can</span>
+<span class="sd">        be passed to an instance of a `slurmjobs` Job. For example, the </span>
+<span class="sd">        [SLURMRESTJob](../jobs/slurmrestjob.md) object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">jobs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">filtered_opts</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># iterate over all job definitions</span>
+        <span class="k">for</span> <span class="n">jobblock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">:</span>
+
+            <span class="k">for</span> <span class="n">jobname</span><span class="p">,</span> <span class="n">jobdef</span> <span class="ow">in</span> <span class="n">jobblock</span><span class="o">.</span><span class="n">__root__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+                <span class="c1"># create named tuple for storing unset/set options and there default values</span>
+                <span class="n">Options</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Options&#39;</span><span class="p">,</span> <span class="s1">&#39;name default&#39;</span><span class="p">)</span>     
+
+                <span class="c1"># collect set job options on local and global levels</span>
+                <span class="n">local_opts_set</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">__fields_set__</span>
+                <span class="n">global_opts_set</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">__fields_set__</span>
+                <span class="n">fields</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">__fields__</span>
+
+                <span class="c1"># set job name</span>
+                <span class="n">jobdef</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">jobname</span>
+
+                <span class="c1"># create copy of job excluding env_modules property</span>
+                <span class="n">tmpjob</span> <span class="o">=</span> <span class="n">JobOptions</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+                                           <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">&#39;env_modules&#39;</span><span class="p">})</span>
+                <span class="n">tmpjob</span> <span class="o">=</span> <span class="n">JobOptions</span><span class="p">(</span><span class="o">**</span><span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+
+                <span class="c1"># filter external options</span>
+                <span class="k">for</span> <span class="n">optname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">ext_opts</span><span class="p">:</span>
+                    <span class="n">jobdef</span><span class="p">,</span> <span class="n">optval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__filter_ext_opts</span><span class="p">(</span><span class="n">jobdef</span><span class="p">,</span> <span class="n">optname</span><span class="p">)</span>
+                    <span class="n">filtered_opts</span><span class="p">[</span><span class="n">optname</span><span class="p">]</span> <span class="o">=</span> <span class="n">optval</span>
+
+                <span class="c1"># list all set field names and default values for non-required fields      </span>
+                <span class="n">setfields</span> <span class="o">=</span> <span class="p">[</span><span class="n">Options</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fields</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">default</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> 
+                                <span class="n">global_opts_set</span><span class="p">]</span>
+
+                <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">setfields</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">opt</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">dict</span><span class="p">():</span>
+                        <span class="n">tmpjob</span><span class="p">[</span><span class="n">opt</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+                <span class="c1"># add ext opts back into job def</span>
+                <span class="k">for</span> <span class="n">optname</span><span class="p">,</span> <span class="n">optval</span> <span class="ow">in</span> <span class="n">filtered_opts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">jobdef</span><span class="p">[</span><span class="n">optname</span><span class="p">]</span> <span class="o">=</span> <span class="n">optval</span>
+                    <span class="n">tmpjob</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">optname</span><span class="p">)</span>
+
+                <span class="c1"># set job properties after filtering</span>
+                <span class="n">jobdef</span><span class="p">[</span><span class="s1">&#39;job&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmpjob</span>
+                <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jobdef</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">jobs</span>         
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="catena.models.job_manifest.JobManifest.Config" class="doc doc-heading">
+        <code>Config</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p><code>JobManifest</code> model <code>Config</code> sub-class: can be accessed internally
+as <code>self.Config</code> or <code>JobManifest.Config</code>. The config class of a Pydantic model is also
+passed as a kwarg to validators and acts as a useful means of 
+storing external variables that are accesible to field 
+validators.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>ext_opts</code></td>
+          <td>
+                <code>list</code>
+          </td>
+          <td><p>extra job options that are separate from SLURM job options.
+This difference is abstracted to the user, but is managed
+internally.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/job_manifest.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    `JobManifest` model `Config` sub-class: can be accessed internally</span>
+<span class="sd">    as `self.Config` or `JobManifest.Config`. The config class of a Pydantic model is also</span>
+<span class="sd">    passed as a kwarg to validators and acts as a useful means of </span>
+<span class="sd">    storing external variables that are accesible to field </span>
+<span class="sd">    validators.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        ext_opts: extra job options that are separate from SLURM job options.</span>
+<span class="sd">            This difference is abstracted to the user, but is managed</span>
+<span class="sd">            internally.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ext_opts</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;env_modules&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;job_script&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;env_extra&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;job_script_args&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;command&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;dependencies&#39;</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="catena.models.job_manifest.JobManifest.__filter_ext_opts" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">__filter_ext_opts</span><span class="p">(</span><span class="n">jobdef</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Filter non sbatch options from job (global opts) field. Local
+job opts will always take precedence over those defined globally</p>
+
+      <details class="quote">
+        <summary>Source code in <code>catena/models/job_manifest.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__filter_ext_opts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jobdef</span><span class="p">:</span> <span class="n">JobOptions</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Filter non sbatch options from job (global opts) field. Local</span>
+<span class="sd">    job opts will always take precedence over those defined globally</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">field_val</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> 
+        <span class="n">jobdef</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">field_val</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1">#and</span>
+          <span class="n">field_val</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">field_val</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">jobdef</span><span class="p">,</span> <span class="n">field_val</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="catena.models.job_manifest.JobManifest.expand_jobs" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">expand_jobs</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return list of job definitions processed from a initialized instance
+of <code>self</code> or <code>JobManifest</code>. The fields defined within this model can
+be passed to an instance of a <code>slurmjobs</code> Job. For example, the 
+<a href="../../jobs/slurmrestjob/">SLURMRESTJob</a> object.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>catena/models/job_manifest.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">expand_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return list of job definitions processed from a initialized instance</span>
+<span class="sd">    of `self` or `JobManifest`. The fields defined within this model can</span>
+<span class="sd">    be passed to an instance of a `slurmjobs` Job. For example, the </span>
+<span class="sd">    [SLURMRESTJob](../jobs/slurmrestjob.md) object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">jobs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filtered_opts</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># iterate over all job definitions</span>
+    <span class="k">for</span> <span class="n">jobblock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">jobname</span><span class="p">,</span> <span class="n">jobdef</span> <span class="ow">in</span> <span class="n">jobblock</span><span class="o">.</span><span class="n">__root__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="c1"># create named tuple for storing unset/set options and there default values</span>
+            <span class="n">Options</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Options&#39;</span><span class="p">,</span> <span class="s1">&#39;name default&#39;</span><span class="p">)</span>     
+
+            <span class="c1"># collect set job options on local and global levels</span>
+            <span class="n">local_opts_set</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">__fields_set__</span>
+            <span class="n">global_opts_set</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">__fields_set__</span>
+            <span class="n">fields</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">__fields__</span>
+
+            <span class="c1"># set job name</span>
+            <span class="n">jobdef</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">jobname</span>
+
+            <span class="c1"># create copy of job excluding env_modules property</span>
+            <span class="n">tmpjob</span> <span class="o">=</span> <span class="n">JobOptions</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+                                       <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">&#39;env_modules&#39;</span><span class="p">})</span>
+            <span class="n">tmpjob</span> <span class="o">=</span> <span class="n">JobOptions</span><span class="p">(</span><span class="o">**</span><span class="n">jobdef</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+
+            <span class="c1"># filter external options</span>
+            <span class="k">for</span> <span class="n">optname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">ext_opts</span><span class="p">:</span>
+                <span class="n">jobdef</span><span class="p">,</span> <span class="n">optval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__filter_ext_opts</span><span class="p">(</span><span class="n">jobdef</span><span class="p">,</span> <span class="n">optname</span><span class="p">)</span>
+                <span class="n">filtered_opts</span><span class="p">[</span><span class="n">optname</span><span class="p">]</span> <span class="o">=</span> <span class="n">optval</span>
+
+            <span class="c1"># list all set field names and default values for non-required fields      </span>
+            <span class="n">setfields</span> <span class="o">=</span> <span class="p">[</span><span class="n">Options</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fields</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">default</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> 
+                            <span class="n">global_opts_set</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">setfields</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">opt</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">dict</span><span class="p">():</span>
+                    <span class="n">tmpjob</span><span class="p">[</span><span class="n">opt</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">jobdef</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="c1"># add ext opts back into job def</span>
+            <span class="k">for</span> <span class="n">optname</span><span class="p">,</span> <span class="n">optval</span> <span class="ow">in</span> <span class="n">filtered_opts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">jobdef</span><span class="p">[</span><span class="n">optname</span><span class="p">]</span> <span class="o">=</span> <span class="n">optval</span>
+                <span class="n">tmpjob</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">optname</span><span class="p">)</span>
+
+            <span class="c1"># set job properties after filtering</span>
+            <span class="n">jobdef</span><span class="p">[</span><span class="s1">&#39;job&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmpjob</span>
+            <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jobdef</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">jobs</span>         
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><h2 id="joboptions"><a name='job_opts_manifest'></a><code>JobOptions</code></h2>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="catena.models.job_manifest.JobOptions"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="catena.models.slurm_submit.SlurmSubmit" href="../slurm_job_models/#catena.models.slurm_submit.SlurmSubmit">SlurmSubmit</a></code></p>
+
+  
+      <p>Job options schema for job manifest. Extends SlurmSubmit which
+provides attributes corresponding to sbatch options in SLURM. </p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>name</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>job name as it will appear in SLURM queue (the <strong>root</strong> key of a
+given Job is usually set internally as the job name when parsing a manifest)</p></td>
+        </tr>
+        <tr>
+          <td><code>env_modules</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[str]]</code>
+          </td>
+          <td><p>list module names that should be loaded when submitting the job
+to a SLURM scheduler and made available to the environment running the job. 
+For example,  <code>['anaconda3/2021.11', 'matlab/96']</code></p></td>
+        </tr>
+        <tr>
+          <td><code>env_extra</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[<span title="typing.Dict">Dict</span>[str, <span title="typing.Any">Any</span>]]</code>
+          </td>
+          <td><p>dictionary of extra environment variables to export to the
+environment running the job submitted to a SLURM scheduler. For
+example, <code>{'MYVAR': '/path/to/stuff'}</code>. See how to 
+<a href="../../examples/example1/#env_extra_feats">append, prepend, or replace</a></p></td>
+        </tr>
+        <tr>
+          <td><code>job_script</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>path to the script, either relative or absolute. The <code>~</code> is
+also excepted and converted to the appropriate absolute path for the 
+current users directory. <strong><em>If</em></strong> using relative paths, be sure to
+understand where the paths should be relative to, to appropriately
+locate your scripts.</p></td>
+        </tr>
+        <tr>
+          <td><code>job_script_args</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[str]]</code>
+          </td>
+          <td><p>list of arguments to pass to the job_script when
+it is executed. For example, <code>job_script_args=['--version']</code></p></td>
+        </tr>
+        <tr>
+          <td><code>command</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>custom command to use when running <code>job_script</code>. If defined, the
+the script provided will be run as an executable with this command
+prepended. For example, command='python -m' would result in the
+<code>job_script</code> being called as: <code>python -m &lt;job_script&gt;</code>. Generally,
+the default should give the right result.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/job_manifest.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">JobOptions</span><span class="p">(</span><span class="n">SlurmSubmit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Job options schema for job manifest. Extends SlurmSubmit which</span>
+<span class="sd">    provides attributes corresponding to sbatch options in SLURM. </span>
+
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: job name as it will appear in SLURM queue (the __root__ key of a</span>
+<span class="sd">            given Job is usually set internally as the job name when parsing a manifest)</span>
+
+<span class="sd">        env_modules: list module names that should be loaded when submitting the job</span>
+<span class="sd">            to a SLURM scheduler and made available to the environment running the job. </span>
+<span class="sd">            For example,  `[&#39;anaconda3/2021.11&#39;, &#39;matlab/96&#39;]`</span>
+
+<span class="sd">        env_extra: dictionary of extra environment variables to export to the</span>
+<span class="sd">            environment running the job submitted to a SLURM scheduler. For</span>
+<span class="sd">            example, `{&#39;MYVAR&#39;: &#39;/path/to/stuff&#39;}`. See how to </span>
+<span class="sd">            [append, prepend, or replace](../examples/example1.md#env_extra_feats)</span>
+
+<span class="sd">        job_script: path to the script, either relative or absolute. The `~` is</span>
+<span class="sd">            also excepted and converted to the appropriate absolute path for the </span>
+<span class="sd">            current users directory. ***If*** using relative paths, be sure to</span>
+<span class="sd">            understand where the paths should be relative to, to appropriately</span>
+<span class="sd">            locate your scripts.</span>
+
+<span class="sd">        job_script_args: list of arguments to pass to the job_script when</span>
+<span class="sd">            it is executed. For example, `job_script_args=[&#39;--version&#39;]`</span>
+
+<span class="sd">        command: custom command to use when running `job_script`. If defined, the</span>
+<span class="sd">            the script provided will be run as an executable with this command</span>
+<span class="sd">            prepended. For example, command=&#39;python -m&#39; would result in the</span>
+<span class="sd">            `job_script` being called as: `python -m &lt;job_script&gt;`. Generally,</span>
+<span class="sd">            the default should give the right result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">env_modules</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">env_extra</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">job_script</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">job_script_args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">command</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">dependencies</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">DependencyType</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]]</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s1">&#39;job_script&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">expand_home_shortcut</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)):</span>
+                <span class="n">ppath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">ppath</span><span class="o">.</span><span class="n">expanduser</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">v</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">v</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div><h2 id="jobdefinition"><a name='job_def_manifest'></a><code>JobDefinition</code></h2>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="catena.models.job_manifest.JobDefinition"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="catena.models.job_manifest.JobOptions" href="#catena.models.job_manifest.JobOptions">JobOptions</a></code></p>
+
+  
+      <p>Local job definition that extends JobOptions as well as provides
+a field, job, for referencing global JobOptions (using YML
+anchors/aliases)</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>job</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[<a class="autorefs autorefs-internal" title="catena.models.job_manifest.JobOptions" href="#catena.models.job_manifest.JobOptions">JobOptions</a>]</code>
+          </td>
+          <td><p>global job options parsed from YML anchors/aliases. Ultimately local
+and global job options are combined when defining a given Job to be 
+submitted to a SLURM cluster, with local job options taking precendence
+over global</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/job_manifest.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">JobDefinition</span><span class="p">(</span><span class="n">JobOptions</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Local job definition that extends JobOptions as well as provides</span>
+<span class="sd">    a field, job, for referencing global JobOptions (using YML</span>
+<span class="sd">    anchors/aliases)</span>
+
+<span class="sd">    Attributes:</span>
+
+<span class="sd">        job: global job options parsed from YML anchors/aliases. Ultimately local</span>
+<span class="sd">            and global job options are combined when defining a given Job to be </span>
+<span class="sd">            submitted to a SLURM cluster, with local job options taking precendence</span>
+<span class="sd">            over global</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">job</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">JobOptions</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../slurm_job_models/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SLURM Jobs" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SLURM Jobs
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../extensions/" class="md-footer__link md-footer__link--next" aria-label="Next: Model Extensions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Model Extensions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../js/termynal.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+    
+  </body>
+</html>

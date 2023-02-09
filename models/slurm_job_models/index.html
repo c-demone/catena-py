@@ -1,0 +1,1853 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>SLURM Jobs - Catena</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#slurm-job-schemas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Catena" class="md-header__button md-logo" aria-label="Catena" data-md-component="logo">
+      
+  <img src="../../img/slurmjobs-icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Catena
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SLURM Jobs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ludah65/catena-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ludah65/catena
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Catena" class="md-nav__button md-logo" aria-label="Catena" data-md-component="logo">
+      
+  <img src="../../img/slurmjobs-icon.png" alt="logo">
+
+    </a>
+    Catena
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ludah65/catena-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ludah65/catena
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Models" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SLURM Jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SLURM Jobs
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slurmmodel" class="md-nav__link">
+    SlurmModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.slurm_submit.SlurmModel" class="md-nav__link">
+    catena.models.slurm_submit.SlurmModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slurmsubmit" class="md-nav__link">
+    SlurmSubmit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.slurm_submit.SlurmSubmit" class="md-nav__link">
+    catena.models.slurm_submit.SlurmSubmit
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_manifests/" class="md-nav__link">
+        Job Manifests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/" class="md-nav__link">
+        Model Extensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jobs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Jobs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jobs/slurmrestjob/" class="md-nav__link">
+        SLURMRESTJob
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manifests/" class="md-nav__link">
+        Job Manifests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Example 1 - Using SLURMRESTJob to Submit Job Locally
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 1 - Using SLURMRESTJob to Submit Job Locally" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Example 1 - Using SLURMRESTJob to Submit Job Locally
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example1/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Example 2a - Using Job Manifests to Organize Workloads
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 2a - Using Job Manifests to Organize Workloads" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Example 2a - Using Job Manifests to Organize Workloads
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example2a/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          Example 2b - Using the !include Constructor to Define Jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 2b - Using the !include Constructor to Define Jobs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Example 2b - Using the !include Constructor to Define Jobs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example2b/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Example 3 - Best Practices for Complex Manifests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 3 - Best Practices for Complex Manifests" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Example 3 - Best Practices for Complex Manifests
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example3/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/pyspark_example/" class="md-nav__link">
+        Example Pyspark
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Extra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Extra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extra/documentation/" class="md-nav__link">
+        Writing Documentation for catena
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extra/slurmapi/" class="md-nav__link">
+        The SLURM REST API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slurmmodel" class="md-nav__link">
+    SlurmModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.slurm_submit.SlurmModel" class="md-nav__link">
+    catena.models.slurm_submit.SlurmModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slurmsubmit" class="md-nav__link">
+    SlurmSubmit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catena.models.slurm_submit.SlurmSubmit" class="md-nav__link">
+    catena.models.slurm_submit.SlurmSubmit
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="slurm-job-schemas">SLURM Job Schemas</h1>
+<h2 id="slurmmodel"><a name="slurm_job"></a><code>SlurmModel</code></h2>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="catena.models.slurm_submit.SlurmModel"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+
+  
+      <p>General SLURM job model including job options and the job script path, used for
+submitting a job through the REST API: <code>POST job/{jobid}</code> </p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>script</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>full absolute path to script to be submitted as a job to the SLURM cluster</p></td>
+        </tr>
+        <tr>
+          <td><code>job</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="catena.models.slurm_submit.SlurmSubmit" href="#catena.models.slurm_submit.SlurmSubmit">SlurmSubmit</a></code>
+          </td>
+          <td><p>SLURM sbatch options for the associated job</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/slurm_submit.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SlurmModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    General SLURM job model including job options and the job script path, used for</span>
+<span class="sd">    submitting a job through the REST API: &lt;code&gt;POST job/{jobid}&lt;/code&gt; </span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        script: full absolute path to script to be submitted as a job to the SLURM cluster</span>
+
+<span class="sd">        job: SLURM sbatch options for the associated job</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">script</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">job</span><span class="p">:</span> <span class="n">SlurmSubmit</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div><h2 id="slurmsubmit"><a name="slurm_submit"></a><code>SlurmSubmit</code></h2>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="catena.models.slurm_submit.SlurmSubmit"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="catena.models.extensions.ExtendedBaseModel" href="../extensions/#catena.models.extensions.ExtendedBaseModel">ExtendedBaseModel</a></code></p>
+
+  
+      <p>SLURM sbatch options: see <a href="https://slurm.schedmd.com/sbatch.html">SLURM documentation</a>
+for more details. </p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>SLURM job name</p></td>
+        </tr>
+        <tr>
+          <td><code>delay_boot</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>do not reboot nodes in order to satisfied this job's feature 
+specification if the job has been eligible to run for less than this time period,
+<strong>defaults to 0</strong> (suggested to leave as default)</p></td>
+        </tr>
+        <tr>
+          <td><code>dependency</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>defer the start of this job until the specified dependencies have been satisfied completed.
+All dependencies must be satisfied if the ','separator is used. Dependencies are given in the format:
+--dependency=<type:jobid[:jobid], type:jobid2[:jobid2].....> (list of jobids is colon-separated, 
+indvidual dependencies are comma-separated).
+Any dependency may be satisfied if the "?" separator is used, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>distribution</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify alternate distribution methods for remote processes. In sbatch, this only sets 
+environment variables that will be used by subsequent srun requests, <strong>defaults to 'arbitrary'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>environment</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[dict]</code>
+          </td>
+          <td><p>map of systems path to be set within the users environment when running the SLURM job, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>exclusive</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The job allocation can not share nodes with other running jobs (or just other users with the '=user' option 
+or with the '=mcs' option), <strong>defaults to 'user'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>get_user_environment</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>this option will tell sbatch to retrieve the login environment variables for the user specified in the 
+<code>--uid</code> option, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gres</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specifies a comma delimited list of generic consumable resources, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gres_flags</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify generic and resource task binding options (<code>disable-binding/enforce-bindings</code>), <strong>defaults to 'disable-binding'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gpu_binding</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>bind tasks to specific GPUs. By default every spawned task can access every GPU allocated to the step, <strong>defaults to 'closest'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gpu_frequency</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>request that GPUs allocated to the job are configured with specific frequency values. This option can be used to independently configure 
+the GPU and its memory frequencies, <strong>defaults to 'medium'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gpus</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify the total number of gpus required for the job '<type>:number', <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gpus_per_node</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify the number of GPUs required for the job on each node included in the job's resource allocation, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gpus_per_socket</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify the number of GPUs required for the job on each socket included in the job's resource allocation. An optional GPU 
+type specification can be supplied, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>gpus_per_task</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify the number of GPUs required for the job on each task to be spawned in the job's resource allocation. An optional GPU type 
+specification can be supplied</p></td>
+        </tr>
+        <tr>
+          <td><code>hold</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify the job is to be submitted in a held state (priority of zero). A held job can now be released using scontrol to reset 
+its priority (e.g. 'scontrol release <job_id>'), <strong>defaults to false</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>licenses</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specification of licenses (or other resources available on all nodes of the cluster) which must be allocated to this job.
+License names can be followed by a colon and count (the default count is one). Multiple license names should be comma separated 
+(e.g. '--licenses=foo:4,bar')</p></td>
+        </tr>
+        <tr>
+          <td><code>mail_type</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>notify user by email when certain event types occur, <strong>defaults to 'NONE'</strong> (see SLURM documentation for full list of options)</p></td>
+        </tr>
+        <tr>
+          <td><code>mail_user</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>user to receive e-mail notification of state changes defined by <code>--mail-type</code>, <strong>defaylts as None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>memory_binding</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>bind tasks to memory. Used only when the task/affinity plugin is enabled and the NUMA memory functions are available, <strong>defaults to None</strong>.</p></td>
+        </tr>
+        <tr>
+          <td><code>memory_per_cpu</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>minimum memory required per allocated CPU (default units are MB, different units can be specified using the suffix [K|M|G|T]), <strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>memory_per_gpu</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>minimum memory required per allocated GPU (default units are megabytes, different units can be specified using the suffix [K|M|G|T]),
+<strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>memory_per_node</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify the real memory required per node (default units are megabytes, different units can be specified using the suffix [K|M|G|T]),
+<strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>cpus_per_task</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>advise the SLURM controller that ensuing job steps will require ncpus number of processors per task. Without this option, 
+the controller will just try to allocate one processor per task, <strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>minimum_cpus_per_node</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify a minimum number of logical cpus/processors per node, <strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>minimum_nodes</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>if a range of node counts is given, prefer the smaller count, <strong>defaults to 'true'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>nice</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>run the job with an adjusted scheduling priority within Slurm. With no adjustment value the scheduling priority 
+is decreased by 100. A negative nice value increases the priority, otherwise decreases it, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>no_kill</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>do not automatically terminate a job if one of the nodes it has been allocated fails. 
+The user will assume the responsibilities for fault-tolerance should a node fail. When there is a node failure, 
+any active job steps (usually MPI jobs) on that node will almost certainly suffer a fatal error, but with 
+<code>--no-kill</code>, the job allocation will not be revoked so the user may launch new job steps on the remaining 
+nodes in their allocation, <strong>defaults to 'off'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>nodes</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>Request that a minimum of minnodes nodes be allocated to this job. A maximum node count may also be specified with maxnodes. 
+If only one number is specified, this is used as both the minimum and maximum node count. The partition's node limits supersede 
+those of the job. If a job's node limits are outside of the range permitted for its associated partition, the job will be left 
+in a PENDING state, <strong>defaults to 1</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>open_mode</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>(append|truncate) open the output and error files using append or truncate mode as specified. The default value is specified by the system 
+configuration parameter JobFileAppend, <strong>defaults to 'append'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>partition</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>request a specific partition for the resource allocation, <strong>defaults to 'normal'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>qos</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>request a quality of service for the job, <strong>defaults to 'user'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>requeue</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specifies that the batch job should be eligible for requeuing, <strong>defaults to 'true'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>reservation</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>allocate resources for the job from the named reservation, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>sockets_per_node</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>restrict node selection to nodes with at least the specified number of socket, <strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>spread_job</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>Spread the job allocation over as many nodes as possible and attempt to evenly distribute tasks across 
+the allocated nodes (this option disables the topology/tree plugin), <strong>defaults to 'true'</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>standard_error</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>instruct SLURM to connect the batch script's standard error directly to the file name at the specified path,
+<strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>standard_in</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>instruct Slurm to connect the batch script's standard input directly to the file name at the specified path,
+<strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>standard_out</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>instruct Slurm to connect the batch script's standard output directly to the file name at the specified path,
+<strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>tasks</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>sbatch does not launch tasks, it requests an allocation of resources and submits a batch script. This option advises the 
+SLURM controller that job steps run within the allocation will launch a maximum of number tasks and to provide for sufficient resources, 
+**defaults to 1 task per node, but note that the <code>--cpus-per-task</code> option will change this default.</p></td>
+        </tr>
+        <tr>
+          <td><code>tasks_per_core</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>request the maximum ntasks be invoked on each core (meant to be used with the <code>--ntasks</code> option),
+<strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>tasks_per_node</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>r that ntasks be invoked on each node (if used with the --ntasks option, the <code>--ntasks</code> option will take precedence 
+and the <code>--ntasks-per-node</code> will be treated as a maximum count of tasks per node), <strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>tasks_per_socket</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>request the maximum ntasks be invoked on each socket (meant to be used with the <code>--ntasks</code> option),
+<strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>threads_per_core</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>restrict node selection to nodes with at least the specified number of threads per core. In task layout, 
+use the specified maximum number of threads per core, <strong>defaults to 0</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>time_limit</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[<span title="typing.Union">Union</span>[int, str]]</code>
+          </td>
+          <td><p>set a limit on the total run time of the job allocation, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>wait_all_nodes</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>(0|1) controls when the execution of the command begins, <strong>defaults to 0</strong> (the job will begin execution as soon as </p></td>
+        </tr>
+        <tr>
+          <td><code>wckey</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>specify wckey to be used with job, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>cores_per_socket</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>restrict node selection to nodes with at least the specified number of cores per socket, <strong>defaults to None</strong></p></td>
+        </tr>
+        <tr>
+          <td><code>core_specifications</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td><p>count of specialized cores per node reserved by the job for system operations and not used by the application,
+<strong>defaults to None</strong></p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>catena/models/slurm_submit.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SlurmSubmit</span><span class="p">(</span><span class="n">ExtendedBaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SLURM sbatch options: see [SLURM documentation](https://slurm.schedmd.com/sbatch.html)</span>
+<span class="sd">    for more details. </span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: SLURM job name</span>
+
+<span class="sd">        delay_boot: do not reboot nodes in order to satisfied this job&#39;s feature </span>
+<span class="sd">            specification if the job has been eligible to run for less than this time period,</span>
+<span class="sd">            **defaults to 0** (suggested to leave as default)</span>
+
+<span class="sd">        dependency: defer the start of this job until the specified dependencies have been satisfied completed.</span>
+<span class="sd">            All dependencies must be satisfied if the &#39;,&#39;separator is used. Dependencies are given in the format:</span>
+<span class="sd">            --dependency=&lt;type:jobid[:jobid], type:jobid2[:jobid2].....&gt; (list of jobids is colon-separated, </span>
+<span class="sd">            indvidual dependencies are comma-separated).</span>
+<span class="sd">            Any dependency may be satisfied if the &quot;?&quot; separator is used, **defaults to None**</span>
+
+<span class="sd">        distribution: specify alternate distribution methods for remote processes. In sbatch, this only sets </span>
+<span class="sd">            environment variables that will be used by subsequent srun requests, **defaults to &#39;arbitrary&#39;**</span>
+
+<span class="sd">        environment: map of systems path to be set within the users environment when running the SLURM job, **defaults to None**</span>
+
+<span class="sd">        exclusive: The job allocation can not share nodes with other running jobs (or just other users with the &#39;=user&#39; option </span>
+<span class="sd">            or with the &#39;=mcs&#39; option), **defaults to &#39;user&#39;**</span>
+
+<span class="sd">        get_user_environment: this option will tell sbatch to retrieve the login environment variables for the user specified in the </span>
+<span class="sd">            &lt;code&gt;--uid&lt;/code&gt; option, **defaults to None**</span>
+
+<span class="sd">        gres: specifies a comma delimited list of generic consumable resources, **defaults to None**</span>
+
+<span class="sd">        gres_flags: specify generic and resource task binding options (&lt;code&gt;disable-binding/enforce-bindings&lt;/code&gt;), **defaults to &#39;disable-binding&#39;**</span>
+
+<span class="sd">        gpu_binding: bind tasks to specific GPUs. By default every spawned task can access every GPU allocated to the step, **defaults to &#39;closest&#39;**</span>
+
+<span class="sd">        gpu_frequency: request that GPUs allocated to the job are configured with specific frequency values. This option can be used to independently configure </span>
+<span class="sd">            the GPU and its memory frequencies, **defaults to &#39;medium&#39;**</span>
+
+<span class="sd">        gpus: specify the total number of gpus required for the job &#39;&lt;type&gt;:number&#39;, **defaults to None**</span>
+
+<span class="sd">        gpus_per_node: specify the number of GPUs required for the job on each node included in the job&#39;s resource allocation, **defaults to None**</span>
+
+<span class="sd">        gpus_per_socket: specify the number of GPUs required for the job on each socket included in the job&#39;s resource allocation. An optional GPU </span>
+<span class="sd">            type specification can be supplied, **defaults to None**</span>
+
+<span class="sd">        gpus_per_task: specify the number of GPUs required for the job on each task to be spawned in the job&#39;s resource allocation. An optional GPU type </span>
+<span class="sd">            specification can be supplied</span>
+
+<span class="sd">        hold: specify the job is to be submitted in a held state (priority of zero). A held job can now be released using scontrol to reset </span>
+<span class="sd">            its priority (e.g. &#39;scontrol release &lt;job_id&gt;&#39;), **defaults to false**</span>
+
+<span class="sd">        licenses: specification of licenses (or other resources available on all nodes of the cluster) which must be allocated to this job.</span>
+<span class="sd">            License names can be followed by a colon and count (the default count is one). Multiple license names should be comma separated </span>
+<span class="sd">            (e.g. &#39;--licenses=foo:4,bar&#39;)</span>
+
+<span class="sd">        mail_type: notify user by email when certain event types occur, **defaults to &#39;NONE&#39;** (see SLURM documentation for full list of options)</span>
+
+<span class="sd">        mail_user: user to receive e-mail notification of state changes defined by &lt;code&gt;--mail-type&lt;/code&gt;, **defaylts as None**</span>
+
+<span class="sd">        memory_binding: bind tasks to memory. Used only when the task/affinity plugin is enabled and the NUMA memory functions are available, **defaults to None**.</span>
+
+<span class="sd">        memory_per_cpu: minimum memory required per allocated CPU (default units are MB, different units can be specified using the suffix [K|M|G|T]), **defaults to 0**</span>
+
+<span class="sd">        memory_per_gpu: minimum memory required per allocated GPU (default units are megabytes, different units can be specified using the suffix [K|M|G|T]),</span>
+<span class="sd">            **defaults to 0**</span>
+
+<span class="sd">        memory_per_node: specify the real memory required per node (default units are megabytes, different units can be specified using the suffix [K|M|G|T]),</span>
+<span class="sd">            **defaults to 0**</span>
+
+<span class="sd">        cpus_per_task: advise the SLURM controller that ensuing job steps will require ncpus number of processors per task. Without this option, </span>
+<span class="sd">            the controller will just try to allocate one processor per task, **defaults to 0**</span>
+
+<span class="sd">        minimum_cpus_per_node: specify a minimum number of logical cpus/processors per node, **defaults to 0**</span>
+
+<span class="sd">        minimum_nodes: if a range of node counts is given, prefer the smaller count, **defaults to &#39;true&#39;**</span>
+
+<span class="sd">        nice: run the job with an adjusted scheduling priority within Slurm. With no adjustment value the scheduling priority </span>
+<span class="sd">            is decreased by 100. A negative nice value increases the priority, otherwise decreases it, **defaults to None**</span>
+
+<span class="sd">        no_kill: do not automatically terminate a job if one of the nodes it has been allocated fails. </span>
+<span class="sd">            The user will assume the responsibilities for fault-tolerance should a node fail. When there is a node failure, </span>
+<span class="sd">            any active job steps (usually MPI jobs) on that node will almost certainly suffer a fatal error, but with </span>
+<span class="sd">            &lt;code&gt;--no-kill&lt;/code&gt;, the job allocation will not be revoked so the user may launch new job steps on the remaining </span>
+<span class="sd">            nodes in their allocation, **defaults to &#39;off&#39;**</span>
+
+<span class="sd">        nodes: Request that a minimum of minnodes nodes be allocated to this job. A maximum node count may also be specified with maxnodes. </span>
+<span class="sd">            If only one number is specified, this is used as both the minimum and maximum node count. The partition&#39;s node limits supersede </span>
+<span class="sd">            those of the job. If a job&#39;s node limits are outside of the range permitted for its associated partition, the job will be left </span>
+<span class="sd">            in a PENDING state, **defaults to 1**</span>
+
+<span class="sd">        open_mode: (append|truncate) open the output and error files using append or truncate mode as specified. The default value is specified by the system </span>
+<span class="sd">            configuration parameter JobFileAppend, **defaults to &#39;append&#39;**</span>
+
+<span class="sd">        partition: request a specific partition for the resource allocation, **defaults to &#39;normal&#39;**</span>
+
+<span class="sd">        qos: request a quality of service for the job, **defaults to &#39;user&#39;**</span>
+
+<span class="sd">        requeue: specifies that the batch job should be eligible for requeuing, **defaults to &#39;true&#39;**</span>
+
+<span class="sd">        reservation: allocate resources for the job from the named reservation, **defaults to None**</span>
+
+<span class="sd">        sockets_per_node: restrict node selection to nodes with at least the specified number of socket, **defaults to 0**</span>
+
+<span class="sd">        spread_job: Spread the job allocation over as many nodes as possible and attempt to evenly distribute tasks across </span>
+<span class="sd">            the allocated nodes (this option disables the topology/tree plugin), **defaults to &#39;true&#39;**</span>
+
+<span class="sd">        standard_error: instruct SLURM to connect the batch script&#39;s standard error directly to the file name at the specified path,</span>
+<span class="sd">            **defaults to None**</span>
+
+<span class="sd">        standard_in: instruct Slurm to connect the batch script&#39;s standard input directly to the file name at the specified path,</span>
+<span class="sd">            **defaults to None**</span>
+
+<span class="sd">        standard_out: instruct Slurm to connect the batch script&#39;s standard output directly to the file name at the specified path,</span>
+<span class="sd">            **defaults to None**</span>
+
+<span class="sd">        tasks: sbatch does not launch tasks, it requests an allocation of resources and submits a batch script. This option advises the </span>
+<span class="sd">            SLURM controller that job steps run within the allocation will launch a maximum of number tasks and to provide for sufficient resources, </span>
+<span class="sd">            **defaults to 1 task per node, but note that the &lt;code&gt;--cpus-per-task&lt;/code&gt; option will change this default.</span>
+
+<span class="sd">        tasks_per_core: request the maximum ntasks be invoked on each core (meant to be used with the &lt;code&gt;--ntasks&lt;/code&gt; option),</span>
+<span class="sd">            **defaults to 0**</span>
+
+<span class="sd">        tasks_per_node: r that ntasks be invoked on each node (if used with the --ntasks option, the &lt;code&gt;--ntasks&lt;/code&gt; option will take precedence </span>
+<span class="sd">            and the &lt;code&gt;--ntasks-per-node&lt;/code&gt; will be treated as a maximum count of tasks per node), **defaults to 0**</span>
+
+<span class="sd">        tasks_per_socket: request the maximum ntasks be invoked on each socket (meant to be used with the &lt;code&gt;--ntasks&lt;/code&gt; option),</span>
+<span class="sd">            **defaults to 0**</span>
+
+<span class="sd">        threads_per_core: restrict node selection to nodes with at least the specified number of threads per core. In task layout, </span>
+<span class="sd">            use the specified maximum number of threads per core, **defaults to 0**</span>
+
+<span class="sd">        time_limit: set a limit on the total run time of the job allocation, **defaults to None**</span>
+
+<span class="sd">        wait_all_nodes: (0|1) controls when the execution of the command begins, **defaults to 0** (the job will begin execution as soon as </span>
+<span class="sd">        the allocation is made)</span>
+
+<span class="sd">        wckey: specify wckey to be used with job, **defaults to None**</span>
+
+<span class="sd">        cores_per_socket: restrict node selection to nodes with at least the specified number of cores per socket, **defaults to None**</span>
+
+<span class="sd">        core_specifications: count of specialized cores per node reserved by the job for system operations and not used by the application,</span>
+<span class="sd">            **defaults to None**</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">delay_boot</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># leave set to 0</span>
+    <span class="n">dependency</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>   
+    <span class="n">distribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;arbitrary&#39;</span>
+    <span class="n">environment</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">exclusive</span><span class="p">:</span>  <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;user&quot;</span>
+    <span class="n">get_user_environment</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">gres</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">gres_flags</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;disable-binding&quot;</span>
+    <span class="n">gpu_binding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;closest&quot;</span>
+    <span class="n">gpu_frequency</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;medium&quot;</span>
+    <span class="n">gpus</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">gpus_per_node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> 
+    <span class="n">gpus_per_socket</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">gpus_per_task</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">hold</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;false&#39;</span>
+    <span class="n">licenses</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> 
+    <span class="n">mail_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
+    <span class="n">mail_user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">memory_binding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+    <span class="n">memory_per_cpu</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">memory_per_gpu</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">memory_per_node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cpus_per_task</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">minimum_cpus_per_node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">minimum_nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
+    <span class="n">nice</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">no_kill</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;off&#39;</span>
+    <span class="n">nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">open_mode</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span>
+    <span class="n">partition</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;normal&#39;</span>
+    <span class="n">qos</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;user&#39;</span> 
+    <span class="n">requeue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
+    <span class="n">reservation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">sockets_per_node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">spread_job</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
+    <span class="n">standard_error</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">standard_in</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">standard_out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tasks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">tasks_per_core</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">tasks_per_node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">tasks_per_socket</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">threads_per_core</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">time_limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>  <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">wait_all_nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">wckey</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">cores_per_socket</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">core_specifications</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s1">&#39;standard_error&#39;</span><span class="p">,</span> <span class="s1">&#39;standard_out&#39;</span><span class="p">,</span> <span class="s1">&#39;standard_in&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">expand_home_shortcut</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)):</span>
+                <span class="n">ppath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">ppath</span><span class="o">.</span><span class="n">expanduser</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">v</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">v</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s1">&#39;standard_error&#39;</span><span class="p">,</span> <span class="s1">&#39;standard_out&#39;</span><span class="p">,</span> <span class="s1">&#39;standard_in&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">check_abs_paths</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">CONTEXT_ROOT</span><span class="p">)</span> <span class="o">/</span> <span class="n">v</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">v</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../job_manifests/" class="md-footer__link md-footer__link--next" aria-label="Next: Job Manifests" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Job Manifests
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../js/termynal.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+    
+  </body>
+</html>

@@ -1,0 +1,1224 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Job Manifests - Catena</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../css/termynal.css">
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+      <link rel="stylesheet" href="../css/jupyter.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#job-manifests" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Catena" class="md-header__button md-logo" aria-label="Catena" data-md-component="logo">
+      
+  <img src="../img/slurmjobs-icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Catena
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Job Manifests
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ludah65/catena-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ludah65/catena
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Catena" class="md-nav__button md-logo" aria-label="Catena" data-md-component="logo">
+      
+  <img src="../img/slurmjobs-icon.png" alt="logo">
+
+    </a>
+    Catena
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ludah65/catena-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ludah65/catena
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Models" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/slurm_job_models/" class="md-nav__link">
+        SLURM Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/job_manifests/" class="md-nav__link">
+        Job Manifests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extensions/" class="md-nav__link">
+        Model Extensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jobs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Jobs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jobs/slurmrestjob/" class="md-nav__link">
+        SLURMRESTJob
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Job Manifests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Job Manifests
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-a-job-manifest" class="md-nav__link">
+    Structure of a Job Manifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-reusable-global-job-options-job_options" class="md-nav__link">
+    Defining Reusable (Global) Job Options: job_options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-include-constructor" class="md-nav__link">
+    Using the !include Constructor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-manifests-best-practices" class="md-nav__link">
+    Job Manifests Best Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-context-in-which-the-manifest-is-run" class="md-nav__link">
+    Understanding the Context in Which the Manifest is Run
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Example 1 - Using SLURMRESTJob to Submit Job Locally
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 1 - Using SLURMRESTJob to Submit Job Locally" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Example 1 - Using SLURMRESTJob to Submit Job Locally
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/example1/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Example 2a - Using Job Manifests to Organize Workloads
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 2a - Using Job Manifests to Organize Workloads" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Example 2a - Using Job Manifests to Organize Workloads
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/example2a/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          Example 2b - Using the !include Constructor to Define Jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 2b - Using the !include Constructor to Define Jobs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Example 2b - Using the !include Constructor to Define Jobs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/example2b/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Example 3 - Best Practices for Complex Manifests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Example 3 - Best Practices for Complex Manifests" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Example 3 - Best Practices for Complex Manifests
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/example3/" class="md-nav__link">
+        Running the Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/pyspark_example/" class="md-nav__link">
+        Example Pyspark
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Extra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Extra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/documentation/" class="md-nav__link">
+        Writing Documentation for catena
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/slurmapi/" class="md-nav__link">
+        The SLURM REST API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-a-job-manifest" class="md-nav__link">
+    Structure of a Job Manifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-reusable-global-job-options-job_options" class="md-nav__link">
+    Defining Reusable (Global) Job Options: job_options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-include-constructor" class="md-nav__link">
+    Using the !include Constructor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-manifests-best-practices" class="md-nav__link">
+    Job Manifests Best Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-context-in-which-the-manifest-is-run" class="md-nav__link">
+    Understanding the Context in Which the Manifest is Run
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="job-manifests">Job Manifests</h1>
+<hr />
+<p>Job manifests are YAML files that allows you to organize instructions for submitting any number of jobs  or scripts of various languages to SLURM for scheduling within the cluster. </p>
+<p><img alt="Manifests Process" src="../img/manifests_process.png" /></p>
+<h2 id="structure-of-a-job-manifest">Structure of a Job Manifest</h2>
+<p>They are comprised of two sections:</p>
+<ol>
+<li>
+<p><strong>job_options</strong> (<em>Optional</em>): Section under which job option blocks can be added. Each of these named configuration sets defines SLURM sbatch options and environment modules that should be loaded for a given job. A single option block can be applied to a single job, or multiple jobs that run different scripts, but have similar requirements. These named configuration sets are referenced using the built-in <code>&amp;</code> and <code>*</code> constructors in YAML.</p>
+</li>
+<li>
+<p><strong>jobs</strong> (<em>Required</em>): Section under which jobs to run are defined. </p>
+</li>
+</ol>
+<p><img alt="Manifest Structure" src="../img/manifest_structure.png" /></p>
+<p>The most basic job manifest is for a single job, with the optional <code>job_options</code> section excluded:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_test</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/matlab/script/to/run.m&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab/96</span>
+<span class="w">        </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stdout/file.out&#39;</span>
+<span class="w">        </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stderr/file.err&#39;</span>
+<span class="w">        </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">        </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+</code></pre></div>
+<p>This manifest will submit a job with the name <code>matlab_test</code> to the SLURM scheduler, requesting a single node with 2 cores and 2GB of RAM. The job will run a MATLAB script, which exists at the full absolute path <code>job_script</code>. In this instance a version of MATLAB is required to run the <code>job_script</code> provided and, therefore, under <code>env_modules</code> we add <code>matlab/96</code> to the list of environment modules to be loaded.</p>
+<p>Each job follows the general structure:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_sript</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">script</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">run&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...job options...</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_sript</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">script</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">run&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...job options...</span>
+</code></pre></div>
+<p>Any number of jobs can be defined under the <code>jobs</code> section.</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_sript</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">script</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">run&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...job1 options...</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_sript</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">script</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">run&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...job2 options...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nn">...</span>
+</code></pre></div>
+<p>🛎️ <strong>Important</strong>: The configuration properties that may be defined within a job option block are controlled by the [<code>SLURMSubmit</code>(schemas/slurm_job_schemas.md#slurm_submit) schema. </p>
+<p>In addition to SLURM sbatch options, a given job definition is comprised as many so called <a href="../jobs/slurmrestjob/#ext_opts">Extra Options</a>. These are not SLURM options but are also used in initializing a <code>Job</code> object to be submitted 
+to a SLURM cluster. </p>
+<p>Here are some key points about <strong><em>defining job options</em></strong> for a job definition:</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Job options can be defined <strong>globally</strong> under <code>job_options</code> and referenced within a given job definition using anchors/aliases under the job key </p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> They can be defined locally within a given job definition the job key within a given job definition should be reserved for global job options defined under job_options </p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> <strong>All job options that can be defined globally can also be defined locally</strong></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Job options defined locally will take precedence over global job options defined under the job key </p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Useful for having a shared set of job settings across multiple jobs while still being able to define local job settings that differ from job to job.</p>
+</li>
+</ul>
+<h2 id="defining-reusable-global-job-options-job_options">Defining Reusable (Global) Job Options: <code>job_options</code></h2>
+<p>The basic manifest provided for a MATLAB job could also be re-written using the <code>job_options</code> section as follows:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">job_options</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">matlab</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;matlab</span>
+<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab/96</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stdout/file.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stderr/file.err&#39;</span>
+<span class="w">      </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matlab_test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/matlab/script/to/run.m&quot;</span>
+<span class="w">    </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*matlab</span>
+</code></pre></div>
+Here we have defined a job option block tagged by <code>&amp;matlab</code>. This tag provides a means of freely referencing this block elsewhere within your manifest by calling it with <code>*matlab</code>, as shown.</p>
+<p>With this in mind, consider a case where we'd like to run a series of jobs in either MATLAB or Python. In this instance the <code>job_options</code> section provides a means of better organizing our manifest:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">job_options</span><span class="p">:</span>
+
+<span class="w">  </span><span class="nt">matlab</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;matlab</span>
+<span class="w">    </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab/96</span>
+<span class="w">    </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stdout/file.out&#39;</span>
+<span class="w">    </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stderr/file.err&#39;</span>
+<span class="w">    </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">    </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+
+<span class="w">  </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;python</span>
+<span class="w">    </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2021.05</span>
+<span class="w">    </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stdout/file.out&#39;</span>
+<span class="w">    </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stderr/file.err&#39;</span>
+<span class="w">    </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">    </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_job1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/matlab/script/to/run.m&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*matlab</span>
+
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_job1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/python/script/to/run1.py&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_job2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/python/script/to/run2.py&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
+</code></pre></div>
+<p>Which is equivalent to</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">jobs</span><span class="p">:</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_job1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/matlab/script/to/run.m&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab/96</span>
+<span class="w">        </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stdout/file.out&#39;</span>
+<span class="w">        </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stderr/file.err&#39;</span>
+<span class="w">        </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">        </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_job1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/python/script/to/run1.py&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2021.05</span>
+<span class="w">        </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stdout/file.out&#39;</span>
+<span class="w">        </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stderr/file.err&#39;</span>
+<span class="w">        </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">        </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_job2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/python/script/to/run2.py&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2021.05</span>
+<span class="w">        </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stdout/file.out&#39;</span>
+<span class="w">        </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/stderr/file.err&#39;</span>
+<span class="w">        </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">        </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+</code></pre></div>
+<p>Cleary, when the number of jobs and options begins to grow this could become more cumbersome to read. </p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> The following is an <a href="../examples/example2a/">example</a> of a simple job manifest</li>
+</ul>
+<h2 id="using-the-include-constructor"><a name="include_constructor"></a>Using the <code>!include</code> Constructor</h2>
+<p>The <code>!include</code> constructor allows you to <em>include</em> options or blocks from other external YML files, given the path. For instance, given three YAML files in the same directory:</p>
+<ol>
+<li><strong><em>manifest.yml</em></strong>: the main manifest </li>
+<li><strong><em>job_opts1.yml</em></strong>: manifest containing global job options</li>
+<li><strong><em>jobs.yml</em></strong>: manifest containing job definitions</li>
+</ol>
+<p><img alt="Include constructor" src="../img/manifests_include.png" /></p>
+<p>The <code>!include</code> constructor can be used for defining either <code>job_options</code> or <code>jobs</code> or both. For example given two YML files in the same directory, <em>manifest.yaml</em> and <em>jobs.yaml</em>:</p>
+<p><em>manifest.yaml</em>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">job_options</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;matlab</span>
+<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab/96</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/man_matlab.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/man_matlab.err&#39;</span>
+<span class="w">      </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+
+<span class="w">  </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;python</span>
+<span class="w">    </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda3/2021.05</span>
+<span class="w">    </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/man_python.out&#39;</span>
+<span class="w">    </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/man_python.err&#39;</span>
+<span class="w">    </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">    </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jobs.yaml</span>
+</code></pre></div></p>
+<p><em>jobs.yaml</em>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_job1</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/matlab/script/to/run.m&quot;</span>
+<span class="w">     </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*matlab</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_job1</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/python/script/to/run1.py&quot;</span>
+<span class="w">     </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">python_job2</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/python/script/to/run2.py&quot;</span>
+<span class="w">     </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*python</span>
+</code></pre></div>
+This would be equivalent to the explicit manifest previously shown. </p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> The following <a href="../examples/example2b/">example</a> looks at this exact type of application.</li>
+</ul>
+<p>🛎️ <strong>Important</strong>: Any number of include statements can be listed for referencing <code>job_options</code> and/or <code>jobs</code> from external YML files.  For instance, the Python and MATLAB job definitions were split into two files <code>matlab_jobs.yaml</code> and <code>python_jobs.yaml</code>. Then, they could be included like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">jobs</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab_jobs.yaml</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_jobs.yaml</span>
+</code></pre></div>
+<p>🛎️ <strong>Important</strong>: The <code>!include</code> constructor and global <code>job_options</code> of a manifest can be used separately or combined to better organize more complex workloads. </p>
+<p>🛎️ <strong>Important</strong>: When global <code>job_options</code> are included from external YML files and the global options are tagged with anchors(&amp;), these options can be referenced by there corresponding alias (*). For instance, given the following 2 external YML files and a main manifest:</p>
+<p>One external YML files for defining global job options for matlab jobs:</p>
+<p><em>matlab_opts.yml</em>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">job_options</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;matlab</span>
+<span class="w">      </span><span class="nt">env_modules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab/96</span>
+<span class="w">      </span><span class="nt">standard_out</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/man_matlab.out&#39;</span>
+<span class="w">      </span><span class="nt">standard_error</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;~/man_matlab.err&#39;</span>
+<span class="w">      </span><span class="nt">cpus_per_task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">memory_per_node</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2GB&#39;</span>
+</code></pre></div></p>
+<p>Another listing job definitions that alias the <code>&amp;matlab</code> anchor
+<em>matlab_jobs.yml</em>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_job1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/matlab/script/to/run.m&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*matlab</span>
+</code></pre></div></p>
+<p>Then, using the <code>!include</code> constructor, the main manifest would be:</p>
+<p><em>manifest.yml</em>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">job_options</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab_opts.yml</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab_jobs.yml</span>
+</code></pre></div></p>
+<p>Or without using the <code>!include</code> constructor, the following main manifest would be valid as well:</p>
+<p><em>manifest.yml</em>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">job_options</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matlab_opts.yml</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matlab_job1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">job_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/matlab/script/to/run.m&quot;</span>
+<span class="w">      </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="nv">*matlab</span>
+</code></pre></div></p>
+<h2 id="job-manifests-best-practices"><a name="manifests_bp"></a>Job Manifests Best Practices</h2>
+<p>Using the <code>!include</code> constructor complex manifests can be organized into multiple YML files. For advanced job manifests involving multiple YAML files, it is good practice to keep things organized and make your manifests easy to navigate. Here is a sample manifest directory.</p>
+<p><img alt="Best Practices" src="../img/manifests_bp_all.png" /></p>
+<p>📝<strong>Note</strong>: Any number of directories can be created and referenced within the <strong><em>main manifest root directory</em></strong> (i.e the directory container the main manifest to be run).</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> The following <a href="../examples/example3/">example</a> demonstrates how this setup can be used in practice. It also serves to demonstrate how relatives paths can be used to define 
+<code>job_options</code> that correspond to paths, which is the subject of the following section.</li>
+</ul>
+<h2 id="understanding-the-context-in-which-the-manifest-is-run">Understanding the Context in Which the Manifest is Run</h2>
+<p>So far in the toy examples shown, not much attention has been given to the path definitions within job manifests and how they are resolved. In particular, it is generally useful to
+use relative paths to clean up a manifest and reduce the verbosity. </p>
+<p>🛎️ <strong>Important</strong>: When definining paths within any manifest, <strong>all paths should be taken relative to the main manifest root directory</strong>:</p>
+<p><img alt="Best Practices Dir" src="../img/manifests_bp.png" /></p>
+<p>In addition to be able to define relative paths, the <code>~</code> expression is also valid and is expanded to the full absolute path of the home directory for the user calling  <code>SLURMRESTJob</code> or running a manifest.
+Ultimately, all paths defined within a manifest or <code>SLURMRESTJob</code> are expanded to there absolute form.</p>
+<p>📝<strong>Note</strong>: expansion of paths defined within a given job definition (including any job options) is performed when validating the inputs to <code>SLURMRESTJob</code> (i.e, using Pydantic validators in both the
+<a href="schemas/slurm_job_schemas.md#slurm_submt"><code>SLURMSubmit</code></a> and the <a href="schemas/job_manifests.md#job_opts_manifest"><code>JobOptions</code></a> schemas)</p>
+<h1 id="submitting-a-manifest">Submitting a Manifest</h1>
+<p>Currently, the <code>run_manifest</code> method can be invoked by calling the <code>slurmjobs</code> module directly and providing the path to a manifest to be run.</p>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>catena<span class="w"> </span>/path/to/my/manifest.yaml
+
+<span class="go">💻 Submitted job: 300205</span>
+<span class="go">💻 Submitted job: 300206</span>
+<span class="go">💻 Submitted job: 300207</span>
+<span class="go">💻 Submitted job: 300208</span>
+</code></pre></div>
+
+</div>
+
+<p>📝 <strong>Note</strong>: Currently not packaged.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../jobs/slurmrestjob/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SLURMRESTJob" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SLURMRESTJob
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../examples/example1/" class="md-footer__link md-footer__link--next" aria-label="Next: Running the Example" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Running the Example
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../js/termynal.js"></script>
+      
+        <script src="../js/custom.js"></script>
+      
+    
+    
+  </body>
+</html>
