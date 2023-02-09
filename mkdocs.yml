@@ -48,6 +48,7 @@ markdown_extensions:
 nav:
     - Home: 'index.md'
     - Models: 
+      - Catena Config: 'models/config.md'
       - SLURM Jobs: 'models/slurm_job_models.md'
       - Job Manifests: 'models/job_manifests.md'
       - Model Extensions: 'models/extensions.md'
