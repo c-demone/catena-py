@@ -1,12 +1,12 @@
 ---
 jobs:
-  - matlab_test1:
+  - julia_test1:
       job_script: "../../../scripts/test.jl"
       standard_out: '~/julia_test1.out'
       standard_error: '~/julia_test1.err'
       job: *julia
   
-  - matlab_test2:
+  - julia_test2:
       job_script: "../../../scripts/test.jl"
       standard_out: '~/julia_test2.out'
       standard_error: '~/julia_test2.err'
