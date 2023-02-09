@@ -3,4 +3,4 @@
 
 ::: catena.models.config.ClusterDefinition
 
-::: catena.model.config.SlurmCluster
+::: catena.models.config.SlurmCluster
