@@ -2,7 +2,7 @@
   <img src='static/catena-logo.png' width=500px height=275px/>
 </p>
 
-# Catena
+# 
 
 Python version of catena
 
